@@ -1,8 +1,11 @@
 {
   "name": "json-schema-builder",
-  "version": "0.0.1",
+  "version": "0.9.0",
   "main": "dist/index",
   "types": "dist/index.dts",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "repository": "https://ryparker@github.com/ryparker/JSON-Schema-Builder.git",
   "author": "Ryan Parker",
   "license": "MIT",
