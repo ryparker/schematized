@@ -1,5 +1,6 @@
 {
   "name": "json-schema-builder",
+  "description": "Turn JS objects into JSON schemas that continue to improve as you provide examples.",
   "version": "0.9.0",
   "main": "dist/index",
   "types": "dist/index.d.ts",
@@ -15,6 +16,25 @@
     "fix": "xo src --fix",
     "test": "yarn build && yarn ava --verbose",
     "clean": "rimraf ./dist"
+  },
+  "dependencies": {
+    "lodash": "^4.17.15"
+  },
+  "devDependencies": {
+    "@ava/typescript": "^1.1.1",
+    "@types/lodash": "^4.14.155",
+    "@types/node": "^14.0.13",
+    "ajv": "^6.12.2",
+    "ava": "^3.9.0",
+    "commitizen": "^4.1.2",
+    "cz-conventional-changelog": "3.2.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "prettier": "^2.0.5",
+    "rimraf": "^3.0.2",
+    "semantic-release": "^17.0.8",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.5",
+    "xo": "^0.32.0"
   },
   "ava": {
     "failFast": false,
@@ -35,22 +55,10 @@
       "@typescript-eslint/no-var-requires": 0
     }
   },
-  "dependencies": {
-    "lodash": "^4.17.15"
-  },
-  "devDependencies": {
-    "@ava/typescript": "^1.1.1",
-    "@types/lodash": "^4.14.155",
-    "@types/node": "^14.0.13",
-    "ajv": "^6.12.2",
-    "ava": "^3.9.0",
-    "eslint-plugin-prettier": "^3.1.4",
-    "prettier": "^2.0.5",
-    "rimraf": "^3.0.2",
-    "semantic-release": "^17.0.8",
-    "ts-node": "^8.10.2",
-    "typescript": "^3.9.5",
-    "xo": "^0.32.0"
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   },
   "keywords": [
     "json schema",
