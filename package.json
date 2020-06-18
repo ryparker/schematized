@@ -1,0 +1,45 @@
+{
+  "name": "json-schema-builder",
+  "version": "0.0.1",
+  "main": "dist/index",
+  "types": "dist/index.dts",
+  "repository": "https://ryparker@github.com/ryparker/JSON-Schema-Builder.git",
+  "author": "Ryan Parker",
+  "license": "MIT",
+  "scripts": {
+    "build": "yarn clean && yarn tsc",
+    "lint": "xo src",
+    "fix": "xo src --fix",
+    "test": "yarn build && yarn ava --verbose",
+    "clean": "rimraf ./dist"
+  },
+  "devDependencies": {
+    "@ava/typescript": "^1.1.1",
+    "@types/lodash": "^4.14.155",
+    "@types/node": "^14.0.13",
+    "ajv": "^6.12.2",
+    "ava": "^3.8.2",
+    "rimraf": "^3.0.2",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.5",
+    "xo": "^0.32.0"
+  },
+  "ava": {
+    "failFast": false,
+    "extensions": [
+      "ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "exclude": [
+      "dist/**",
+      "docs/**"
+    ]
+  },
+  "dependencies": {
+    "lodash": "^4.17.15",
+    "lodash.keys": "^4.2.0",
+    "pycollections": "^0.9.0"
+  }
+}

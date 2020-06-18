@@ -1,0 +1,51 @@
+{
+    "userRole": [
+        "ROLE_VET_TECH"
+    ],
+    "name": "VetTech One",
+    "displayName": "One",
+    "lastLogin": null,
+    "missingNecessaryLicenseAgreement": true,
+    "availableApps": "appFeedlink,appDatalink,appEquuslink,appManager,appHealthlink,appScriptlink",
+    "enabledApps": [
+        "feedlink",
+        "datalink",
+        "equuslink",
+        "manager",
+        "healthlink",
+        "scriptlink"
+    ],
+    "betaFeatures": null,
+    "settings": [],
+    "canSignCerts": false,
+    "appUserId": 47,
+    "email": "vettech1@email.com",
+    "username": "vettech1",
+    "userCountry": "USA",
+    "himsAccess": false,
+    "enabledFeatures": [
+        "NVSL",
+        "Rabies",
+        "International",
+        "Ads"
+    ],
+    "vetTechId": 38,
+    "clinicId": 3,
+    "clinicName": "Ames Animal Hospital",
+    "clinicAnimalType": null,
+    "includeImage": true,
+    "giveNewContactsMvlAccess": true,
+    "account": {
+        "type": "Clinic",
+        "name": "Ames Animal Hospital",
+        "id": 3,
+        "plan": "PAID",
+        "territory": "Midwest",
+        "address1": "123 Main Street",
+        "address2": "Ames, IA 50014",
+        "city": "Ames",
+        "postalcode": "50014",
+        "state": "IA",
+        "country": "USA"
+    }
+}

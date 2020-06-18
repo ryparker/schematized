@@ -1,0 +1,83 @@
+{
+  "userRole": [
+    "ROLE_VET"
+  ],
+  "name": "John Sample",
+  "displayName": "Sample",
+  "lastLogin": "2020-06-10T22:29:36Z",
+  "missingNecesaryLicenseAgreement": false,
+  "availableApps": "appEquuslink,appFeedlink,appHealthlink,appManager,appScriptlink",
+  "enabledApps": [
+    "equuslink",
+    "feedlink",
+    "healthlink",
+    "manager",
+    "scriptlink"
+  ],
+  "betaFeatures": [
+    "managerCreateDoc",
+    "forSaleAccess"
+  ],
+  "settings": [],
+  "canSignCerts": true,
+  "appUserId": 100000,
+  "email": "bsteele@globalvetlink.com",
+  "username": "vet1",
+  "userCountry": "USA",
+  "himsAccess": false,
+  "enabledFeatures": [
+    "Ads",
+    "Rabies",
+    "International"
+  ],
+  "licenseStates": [
+    "AZ",
+    "IA",
+    "ID",
+    "WA",
+    "MN",
+    "LA",
+    "CO",
+    "AK",
+    "MI",
+    "FEDERAL",
+    "TX",
+    "NE",
+    "GA",
+    "SD",
+    "AL",
+    "DC",
+    "KS",
+    "IN",
+    "WI",
+    "KY",
+    "MO",
+    "IL",
+    "NY",
+    "CA",
+    "ND",
+    "OK",
+    "VA",
+    "FL",
+    "TN"
+  ],
+  "vetId": 1,
+  "clinicId": 100000,
+  "clinicName": "Ames Animal Hospital",
+  "clinicAnimalType": null,
+  "includeImage": true,
+  "giveNewContactsMvlAccess": true,
+  "account": {
+    "type": "Clinic",
+    "name": "Ames Animal Hospital",
+    "id": 100000,
+    "plan": "PAID",
+    "territory": "Eastern",
+    "address1": "525252 test main st",
+    "address2": "Suite 300",
+    "city": "Ankeny",
+    "postalcode": "50021",
+    "state": "FL",
+    "country": "USA"
+  }
+}
