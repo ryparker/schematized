@@ -1,7 +1,7 @@
 {
   "name": "json-schema-builder",
   "description": "Turn JS objects into JSON schemas that continue to improve as you provide examples.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "files": [
     "dist/"
   ],
