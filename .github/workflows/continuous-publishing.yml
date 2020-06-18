@@ -17,13 +17,11 @@ jobs:
           node-version: 14.x
       - run: yarn install
       - name: Lint
-        run: yarn test:lint
+        run: yarn lint
       - name: Build
         run: yarn build
       - name: Test
-        run: yarn test:unit
-      - name: Code coverage report
-        run: yarn cov:check
+        run: yarn test
 
   publish-github-package-repo:
     needs: [pre-release-checks]
@@ -33,7 +31,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Setup Node 13.x with registry access
+      - name: Setup Node 14.x with registry access
         uses: actions/setup-node@v1
         with:
           node-version: '14.x'
