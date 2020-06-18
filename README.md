@@ -19,8 +19,8 @@ yarn add schematized
 2. Basic usage
 
 ```ts
-import { SchemaBuilder } from 'json-schema-builder' // Typescript & ES6+
-const { default: SchemaBuilder } = require('json-schema-builder') // CommonJS
+import { SchemaBuilder } from 'schematized' // Typescript & ES6+
+const { default: SchemaBuilder } = require('schematized') // CommonJS
 
 const builder = new SchemaBuilder()
 
