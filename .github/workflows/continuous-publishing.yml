@@ -1,4 +1,4 @@
-name: Continuous Deployment
+name: Published
 
 on:
   push:
