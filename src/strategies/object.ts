@@ -103,9 +103,11 @@ export class ObjectS extends SchemaStrategy {
 
 		if (
 			!_.isNil(this.patternProperties) &&
-      !_.isEmpty(this.patternProperties)
+			!_.isEmpty(this.patternProperties)
 		) {
-			schema.patternProperties = this.propertiesToSchema(this.patternProperties);
+			schema.patternProperties = this.propertiesToSchema(
+				this.patternProperties
+			);
 		}
 
 		if (this.required || this.includeEmptyRequired) {

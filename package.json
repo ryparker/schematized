@@ -46,6 +46,7 @@
     "pycollections": "^0.9.0"
   },
   "xo": {
+    "prettier": true,
     "rules": {
       "@typescript-eslint/no-var-requires": 0
     }

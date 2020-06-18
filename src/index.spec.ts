@@ -2,7 +2,7 @@ import AJV from 'ajv';
 import {SchemaBuilder} from '.';
 import test from 'ava';
 
-test('Outputs profile JSON schema, when provided one JSON payload.', async t => {
+test('Outputs profile JSON schema, when provided one JSON payload.', async (t) => {
 	const instance = new SchemaBuilder();
 
 	const samplePayload = require('../examples/profile.json');
@@ -23,7 +23,7 @@ test('Outputs profile JSON schema, when provided one JSON payload.', async t => 
 	);
 });
 
-test('Outputs /gettoken JSON schema, when provided one JSON payload.', async t => {
+test('Outputs /gettoken JSON schema, when provided one JSON payload.', async (t) => {
 	const instance = new SchemaBuilder();
 
 	const samplePayload = require('../examples/auth.json');
@@ -44,7 +44,7 @@ test('Outputs /gettoken JSON schema, when provided one JSON payload.', async t =
 	);
 });
 
-test('Outputs /documents(cvi) JSON schema, when provided one JSON payload.', async t => {
+test('Outputs /documents(cvi) JSON schema, when provided one JSON payload.', async (t) => {
 	const instance = new SchemaBuilder();
 
 	const samplePayload = require('../examples/document.json');
@@ -65,7 +65,7 @@ test('Outputs /documents(cvi) JSON schema, when provided one JSON payload.', asy
 	);
 });
 
-test('Outputs /user JSON schema, when provided one JSON payload.', async t => {
+test('Outputs /user JSON schema, when provided one JSON payload.', async (t) => {
 	const instance = new SchemaBuilder();
 
 	const samplePayload = require('../examples/user.json');
@@ -86,7 +86,7 @@ test('Outputs /user JSON schema, when provided one JSON payload.', async t => {
 	);
 });
 
-test('Outputs /user & /user2 JSON schema, when provided one JSON payload.', async t => {
+test('Outputs /user & /user2 JSON schema, when provided one JSON payload.', async (t) => {
 	const instance = new SchemaBuilder();
 
 	const samplePayload = require('../examples/user.json');

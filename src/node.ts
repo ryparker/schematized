@@ -107,8 +107,8 @@ export class SchemaNode {
 				// Incorporate typeless strategy if it exists
 				if (
 					this.activeStrategies &&
-          this.activeStrategies[this.activeStrategies.length - 1] instanceof
-            Typeless
+					this.activeStrategies[this.activeStrategies.length - 1] instanceof
+						Typeless
 				) {
 					const typeless = this.activeStrategies.pop();
 					activeStrategy.addSchema(typeless.toSchema());

@@ -18,7 +18,7 @@ export class Array extends SchemaStrategy {
 	public matchSchema(schema: any) {
 		return (
 			_.get(schema, 'type') === 'array' &&
-      _.isPlainObject(_.get(schema, 'items', {}))
+			_.isPlainObject(_.get(schema, 'items', {}))
 		);
 	}
 
