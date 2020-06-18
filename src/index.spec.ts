@@ -9,7 +9,6 @@ test('Outputs profile JSON schema, when provided one JSON payload.', async (t) =
 
 	instance.addObject(samplePayload);
 	const output = instance.toSchema();
-	console.log('OUTPUT:', JSON.stringify(output, null, 2));
 
 	const schemaValidator = new AJV();
 	const isValidSchema = schemaValidator.validateSchema(output);
@@ -30,7 +29,6 @@ test('Outputs /gettoken JSON schema, when provided one JSON payload.', async (t)
 
 	instance.addObject(samplePayload);
 	const output = instance.toSchema();
-	console.log('OUTPUT:', JSON.stringify(output, null, 2));
 
 	const schemaValidator = new AJV();
 	const isValidSchema = schemaValidator.validateSchema(output);
@@ -51,7 +49,6 @@ test('Outputs /documents(cvi) JSON schema, when provided one JSON payload.', asy
 
 	instance.addObject(samplePayload);
 	const output = instance.toSchema();
-	console.log('OUTPUT:', JSON.stringify(output, null, 2));
 
 	const schemaValidator = new AJV();
 	const isValidSchema = schemaValidator.validateSchema(output);
@@ -72,7 +69,6 @@ test('Outputs /user JSON schema, when provided one JSON payload.', async (t) => 
 
 	instance.addObject(samplePayload);
 	const output = instance.toSchema();
-	console.log('OUTPUT:', JSON.stringify(output, null, 2));
 
 	const schemaValidator = new AJV();
 	const isValidSchema = schemaValidator.validateSchema(output);
@@ -98,7 +94,6 @@ test('Outputs /user & /user2 JSON schema, when provided one JSON payload.', asyn
 	instance.addObject(samplePayload2);
 
 	const output = instance.toSchema();
-	console.log('OUTPUT:', JSON.stringify(output, null, 2));
 
 	const schemaValidator = new AJV();
 	const isValidSchema = schemaValidator.validateSchema(output);
