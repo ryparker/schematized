@@ -1,4 +1,4 @@
-# JSON-Schema-Builder
+# Schematized
 
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 ![Build-Test-Publish](https://github.com/ryparker/JSON-Schema-Builder/workflows/Build-Test-Publish/badge.svg)
@@ -13,7 +13,7 @@ A Node port of the Python module Genson.
 1. Add dependency
 
 ```shell
-yarn add json-schema-builder
+yarn add schematized
 ```
 
 2. Basic usage

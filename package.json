@@ -1,19 +1,15 @@
 {
-  "name": "json-schema-builder",
+  "name": "schematized",
   "description": "Turn JS objects into JSON schemas that continue to improve as you provide examples.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "files": [
     "dist/"
   ],
   "main": "dist/index",
   "types": "dist/index.d.ts",
-  "repository": "https://ryparker@github.com/ryparker/JSON-Schema-Builder.git",
+  "repository": "git://github.com/ryparker/json-schema-builder.git",
   "author": "Ryan Parker",
   "license": "MIT",
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://npm.pkg.github.com/"
-  },
   "scripts": {
     "build": "yarn clean && yarn tsc",
     "lint": "xo src",
