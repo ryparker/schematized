@@ -1,7 +1,7 @@
-import { SchemaNode } from './../node'
+import { SchemaNode } from '../node'
 import _ from 'lodash'
 
-export abstract class SchemaStrategy extends Object {
+export class SchemaStrategy extends Object {
   keywords = new Set(['type'])
   nodeClass: SchemaNode
   extraKeywords: any
@@ -13,18 +13,18 @@ export abstract class SchemaStrategy extends Object {
     this.extraKeywords = {}
   }
 
-  public addObject(obj: any) {
-    return
-  }
-
   public addSchema(schema: any) {
     this.addExtraKeywords(schema)
+  }
+
+  public addObject(_object: any) {
+    // Do nothing, this should be overriden.
   }
 
   public addExtraKeywords(schema: any) {
     for (const [key, value] of _.toPairs(schema)) {
       if (!this.keywords.has(key)) {
-        if (!this.extraKeywords.hasOwnProperty(key)) {
+        if (!this.extraKeywords[key]) {
           this.extraKeywords[key] = value
         } else if (this.extraKeywords[key] !== value) {
           console.warn('Schema incompatible.')
@@ -33,11 +33,11 @@ export abstract class SchemaStrategy extends Object {
     }
   }
 
-  public matchSchema(schema: any) {
+  public matchSchema(_schema: any) {
     throw new Error('matchSchema not implemented')
   }
 
-  public matchObject(obj: any) {
+  public matchObject(_object: any) {
     throw new Error('matchObject not implemented')
   }
 
@@ -54,8 +54,8 @@ export abstract class TypedSchemaStrategy extends SchemaStrategy {
   }
 
   public toSchema() {
-    let schema = super.toSchema()
-    schema['type'] = this.type
+    const schema = super.toSchema()
+    schema.type = this.type
     return schema
   }
 }

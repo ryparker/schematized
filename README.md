@@ -1,6 +1,7 @@
 # JSON-Schema-Builder
 
 ![Published](https://github.com/ryparker/JSON-Schema-Builder/workflows/Published/badge.svg)
+[![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/xojs/xo)
 
 Turn JS objects into JSON schemas that continue to improve as you provide examples. A Node port of the Python module Genson.
 
@@ -9,13 +10,14 @@ Turn JS objects into JSON schemas that continue to improve as you provide exampl
 1. Add dependency
 
 ```shell
-yarn add JSON-schema-builder
+yarn add json-schema-builder
 ```
 
 2. Basic usage
 
 ```ts
-import SchemaBuilder from 'JSON-schema-builder'
+import { SchemaBuilder } from 'json-schema-builder' // Typescript & ES6+
+const { default: SchemaBuilder } = require('json-schema-builder') // CommonJS
 
 const builder = new SchemaBuilder()
 
@@ -43,8 +45,6 @@ builder.addObject({
     'Publisher'
   ]
 })
-
-const improvedSchema = builder.toSchema()
 
 // Or combine data from another JSON Schema
 builder.addSchema(savedSchema)

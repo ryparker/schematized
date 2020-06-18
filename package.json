@@ -44,5 +44,10 @@
     "lodash": "^4.17.15",
     "lodash.keys": "^4.2.0",
     "pycollections": "^0.9.0"
+  },
+  "xo": {
+    "rules": {
+      "@typescript-eslint/no-var-requires": 0
+    }
   }
 }

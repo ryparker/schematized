@@ -1,1 +1,1 @@
-export { SchemaBuilder } from './builder'
+export {SchemaBuilder} from './builder';
