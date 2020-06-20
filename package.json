@@ -1,7 +1,7 @@
 {
   "name": "schematized",
   "description": "Turn JS objects into JSON schemas that continue to improve as you provide examples.",
-  "version": "1.0.3",
+  "version": "1.2.0",
   "files": [
     "dist/"
   ],
