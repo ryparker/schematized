@@ -1,4 +1,5 @@
-import {BASIC_SCHEMA_STRATEGIES} from './strategies';
+import {BASIC_SCHEMA_STRATEGIES, Typeless} from './strategies';
+
 import _ from 'lodash';
 
 export class SchemaNode {
@@ -104,14 +105,14 @@ export class SchemaNode {
 				const activeStrategy = strategyInstance;
 
 				// Incorporate typeless strategy if it exists
-				// 	if (
-				// 		this.activeStrategies &&
-				// 		this.activeStrategies[this.activeStrategies.length - 1] instanceof
-				// 			Typeless
-				// 	) {
-				// 		const typeless = this.activeStrategies.pop();
-				// 		activeStrategy.addSchema(typeless.toSchema());
-				// 	}
+				if (
+					this.activeStrategies &&
+					this.activeStrategies[this.activeStrategies.length - 1] instanceof
+						Typeless
+				) {
+					const typeless = this.activeStrategies.pop();
+					activeStrategy.addSchema(typeless.toSchema());
+				}
 
 				this.activeStrategies.push(activeStrategy);
 				return activeStrategy;
@@ -119,15 +120,15 @@ export class SchemaNode {
 		}
 
 		// No match found, if typeless add to first strategy
-		// const typelessInstance = new Typeless(schemaNode);
-		// if (kind === 'schema' && typelessInstance.matchSchema(schemaOrObject)) {
-		// 	if (this.activeStrategies.length === 0) {
-		// 		this.activeStrategies.push(typelessInstance);
-		// 	}
+		const typelessInstance = new Typeless(schemaNode);
+		if (kind === 'schema' && typelessInstance.matchSchema(schemaOrObject)) {
+			if (this.activeStrategies.length === 0) {
+				this.activeStrategies.push(typelessInstance);
+			}
 
-		// 	const activeStrategy = this.activeStrategies[0];
-		// 	return activeStrategy;
-		// }
+			const activeStrategy = this.activeStrategies[0];
+			return activeStrategy;
+		}
 
 		// If no match found, raise an error
 		throw new Error(

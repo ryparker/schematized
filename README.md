@@ -52,23 +52,94 @@ builder.addObject({
 })
 
 // Or combine data from another JSON Schema
-builder.addSchema(savedSchema)
+builder.addSchema({
+  title: '/user response',
+  description: 'User data from server.'
+})
 ```
 
 **Schema from the single example:**
 
 ```JSON
-
+{
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object",
+  "properties": {
+    "token": {
+      "type": "string",
+      "maxLength": 32,
+      "minLength": 32
+    },
+    "role": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "maxLength": 5,
+        "minLength": 5
+      }
+    }
+  },
+  "required": [
+    "role",
+    "token"
+  ]
+}
 ```
 
 **Schema from the two examples:**
 
 ```JSON
-
+{
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object",
+  "properties": {
+    "token": {
+      "type": "string",
+      "maxLength": 39,
+      "minLength": 32
+    },
+    "role": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "maxLength": 9,
+        "minLength": 5
+      }
+    }
+  },
+  "required": [
+    "role",
+    "token"
+  ]
+}
 ```
 
 **Schema from the two examples and the previously saved schema**:
 
 ```JSON
-
+{
+  "$schema": "http://json-schema.org/schema#",
+  "title": "/user response",
+  "description": "User data from server.",
+  "type": "object",
+  "properties": {
+    "token": {
+      "type": "string",
+      "maxLength": 39,
+      "minLength": 32
+    },
+    "role": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "maxLength": 9,
+        "minLength": 5
+      }
+    }
+  },
+  "required": [
+    "role",
+    "token"
+  ]
+}
 ```

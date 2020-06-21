@@ -39,7 +39,6 @@ test('Outputs /gettoken JSON schema, when provided one JSON payload.', async (t)
 
 	await fs.promises.writeFile(
 		path.resolve(__dirname, '../examples/schemas/auth.json'),
-
 		JSON.stringify(output, null, 2)
 	);
 
@@ -65,7 +64,6 @@ test('Outputs /documents(cvi) JSON schema, when provided one JSON payload.', asy
 
 	await fs.promises.writeFile(
 		path.resolve(__dirname, '../examples/schemas/document.json'),
-
 		JSON.stringify(output, null, 2)
 	);
 
@@ -91,7 +89,6 @@ test('Outputs /user JSON schema, when provided one JSON payload.', async (t) => 
 
 	await fs.promises.writeFile(
 		path.resolve(__dirname, '../examples/schemas/user.json'),
-
 		JSON.stringify(output, null, 2)
 	);
 
@@ -107,7 +104,7 @@ test('Outputs /user JSON schema, when provided one JSON payload.', async (t) => 
 	);
 });
 
-test('Outputs /user & /user2 JSON schema, when provided one JSON payload.', async (t) => {
+test('Outputs JSON schema, when provided two JSON payload and one schema.', async (t) => {
 	const instance = new SchemaBuilder();
 
 	const samplePayload = require('../examples/user.json');
@@ -117,12 +114,15 @@ test('Outputs /user & /user2 JSON schema, when provided one JSON payload.', asyn
 	const samplePayload2 = require('../examples/user2.json');
 
 	instance.addObject(samplePayload2);
+	instance.addSchema({
+		title: '/user response',
+		description: 'User data from server.'
+	});
 
 	const output = instance.toSchema();
 
 	await fs.promises.writeFile(
 		path.resolve(__dirname, '../examples/schemas/user1&2.json'),
-
 		JSON.stringify(output, null, 2)
 	);
 

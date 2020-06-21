@@ -14,3 +14,5 @@ export const BASIC_SCHEMA_STRATEGIES = [
 	ArrayStrategy,
 	ObjectStrategy
 ];
+
+export {Typeless} from './scalar';

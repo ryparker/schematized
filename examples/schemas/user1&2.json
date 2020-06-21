@@ -1,5 +1,7 @@
 {
   "$schema": "http://json-schema.org/schema#",
+  "title": "/user response",
+  "description": "User data from server.",
   "type": "object",
   "properties": {
     "userRole": {
