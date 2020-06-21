@@ -114,7 +114,7 @@ builder.addSchema({
 }
 ```
 
-**Schema from the two examples and the previously saved schema**:
+**Schema from the two examples and the schema**:
 
 ```JSON
 {
