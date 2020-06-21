@@ -1,4 +1,4 @@
-import {BASIC_SCHEMA_STRATEGIES, Typeless} from './strategies';
+import {BASIC_SCHEMA_STRATEGIES, TypelessStrategy} from './strategies';
 
 import _ from 'lodash';
 
@@ -10,7 +10,7 @@ export class SchemaNode {
 		this.activeStrategies = [];
 	}
 
-	public addSchema(schema: Record<string, unknown>) {
+	public addSchema(schema: Record<string, any>) {
 		if (schema instanceof SchemaNode) {
 			schema = schema.toSchema();
 		}
@@ -46,7 +46,7 @@ export class SchemaNode {
 			}
 		}
 
-		if (_.size(types) > 0) {
+		if (types.size > 0) {
 			let schemaType;
 
 			if (types.size === 1) {
@@ -108,7 +108,7 @@ export class SchemaNode {
 				if (
 					this.activeStrategies &&
 					this.activeStrategies[this.activeStrategies.length - 1] instanceof
-						Typeless
+						TypelessStrategy
 				) {
 					const typeless = this.activeStrategies.pop();
 					activeStrategy.addSchema(typeless.toSchema());
@@ -120,7 +120,7 @@ export class SchemaNode {
 		}
 
 		// No match found, if typeless add to first strategy
-		const typelessInstance = new Typeless(schemaNode);
+		const typelessInstance = new TypelessStrategy(schemaNode);
 		if (kind === 'schema' && typelessInstance.matchSchema(schemaOrObject)) {
 			if (this.activeStrategies.length === 0) {
 				this.activeStrategies.push(typelessInstance);

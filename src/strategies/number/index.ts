@@ -1,6 +1,6 @@
 import {Maximum} from './maximum';
 import {Minimum} from './minimum';
-import {TypedSchemaStrategy} from '../base';
+import {TypedSchemaStrategy} from '../typed-schema-strategy';
 import _ from 'lodash';
 
 export class NumberStrategy extends TypedSchemaStrategy {

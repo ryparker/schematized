@@ -1,37 +1,25 @@
 import {SchemaNode} from './schema-node';
-import _ from 'lodash';
-
-const DEFAULT_URI = 'http://json-schema.org/schema#';
 
 export class SchemaBuilder {
-	private schemaUri: string | null;
+	private schemaUri: string;
 	private readonly rootNode: SchemaNode;
 
-	constructor(schemaUri = 'http://json-schema.org/schema#') {
+	constructor(schemaUri = 'http://json-schema.org/draft-07/schema#') {
 		this.schemaUri = schemaUri;
 		this.rootNode = new SchemaNode();
 	}
 
-	public addObject(object: Record<string, unknown>) {
+	public addObject(object: Record<string, any>) {
 		this.rootNode.addObject(object);
 	}
 
 	public addSchema(schema: Record<string, any>) {
-		if (schema instanceof SchemaBuilder) {
-			const schemaUri = schema.schemaUri;
-			schema = schema.toSchema();
-
-			if (_.isNil(schemaUri)) {
-				delete schema.$schema;
-			}
-		} else if (schema instanceof SchemaNode) {
+		if (schema instanceof SchemaBuilder || schema instanceof SchemaNode) {
 			schema = schema.toSchema();
 		}
 
-		if (_.includes(schema, '$schema')) {
-			this.schemaUri = this.schemaUri || schema.$schema;
-			schema = _.clone(schema);
-			delete schema.$schema;
+		if (!this.schemaUri && schema.$schema) {
+			this.schemaUri = schema.$schema;
 		}
 
 		this.rootNode.addSchema(schema);
@@ -39,18 +27,14 @@ export class SchemaBuilder {
 
 	public toSchema() {
 		const schema = this.baseSchema();
-		return _.merge(schema, this.rootNode.toSchema());
+		return {...schema, ...this.rootNode.toSchema()};
 	}
 
-	public toJson() {
+	public toPrettySchema() {
 		return JSON.stringify(this.toSchema(), null, 2);
 	}
 
 	private baseSchema() {
-		if (this.schemaUri === 'null') {
-			return {};
-		}
-
-		return {$schema: this.schemaUri || DEFAULT_URI};
+		return {$schema: this.schemaUri};
 	}
 }

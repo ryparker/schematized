@@ -48,7 +48,8 @@
       "required": [
         "firstName",
         "lastName"
-      ]
+      ],
+      "additionalProperties": false
     }
   },
   "required": [
@@ -58,5 +59,6 @@
     "phone",
     "role",
     "username"
-  ]
+  ],
+  "additionalProperties": false
 }

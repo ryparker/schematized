@@ -63,7 +63,8 @@
       "required": [
         "id",
         "name"
-      ]
+      ],
+      "additionalProperties": false
     },
     "clinic_id": {
       "type": "number",
@@ -90,7 +91,8 @@
       },
       "required": [
         "status"
-      ]
+      ],
+      "additionalProperties": false
     },
     "brandInspectionDate": {
       "type": "null"
@@ -342,7 +344,8 @@
                 "sentDate",
                 "type",
                 "version"
-              ]
+              ],
+              "additionalProperties": false
             }
           },
           "vacs": {
@@ -369,7 +372,8 @@
           "tests",
           "vacs",
           "version"
-        ]
+        ],
+        "additionalProperties": false
       }
     },
     "areaStatuses": {
@@ -450,7 +454,8 @@
         "ownerEmail",
         "type",
         "version"
-      ]
+      ],
+      "additionalProperties": false
     },
     "carrierPremises": {
       "type": "object",
@@ -535,7 +540,8 @@
         "postalCode",
         "state",
         "version"
-      ]
+      ],
+      "additionalProperties": false
     },
     "consignee": {
       "type": "object",
@@ -607,7 +613,8 @@
         "ownerEmail",
         "type",
         "version"
-      ]
+      ],
+      "additionalProperties": false
     },
     "consigneePremises": {
       "type": "object",
@@ -692,7 +699,8 @@
         "postalCode",
         "state",
         "version"
-      ]
+      ],
+      "additionalProperties": false
     },
     "consignor": {
       "type": "object",
@@ -762,7 +770,8 @@
         "ownerEmail",
         "type",
         "version"
-      ]
+      ],
+      "additionalProperties": false
     },
     "consignorPremises": {
       "type": "object",
@@ -845,7 +854,8 @@
         "postalCode",
         "state",
         "version"
-      ]
+      ],
+      "additionalProperties": false
     },
     "destination": {
       "type": "object",
@@ -913,7 +923,8 @@
         "ownerEmail",
         "type",
         "version"
-      ]
+      ],
+      "additionalProperties": false
     },
     "destinationPremises": {
       "type": "object",
@@ -998,7 +1009,8 @@
         "postalCode",
         "state",
         "version"
-      ]
+      ],
+      "additionalProperties": false
     },
     "origin": {
       "type": "object",
@@ -1068,7 +1080,8 @@
         "ownerEmail",
         "type",
         "version"
-      ]
+      ],
+      "additionalProperties": false
     },
     "originPremises": {
       "type": "object",
@@ -1151,7 +1164,8 @@
         "postalCode",
         "state",
         "version"
-      ]
+      ],
+      "additionalProperties": false
     },
     "questions": {
       "type": "array"
@@ -1206,5 +1220,6 @@
     "verified",
     "version",
     "vet"
-  ]
+  ],
+  "additionalProperties": false
 }

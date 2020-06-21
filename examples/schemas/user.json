@@ -175,7 +175,8 @@
         "state",
         "territory",
         "type"
-      ]
+      ],
+      "additionalProperties": false
     }
   },
   "required": [
@@ -202,5 +203,6 @@
     "userRole",
     "username",
     "vetTechId"
-  ]
+  ],
+  "additionalProperties": false
 }

@@ -1,5 +1,5 @@
-import {SchemaNode} from '../schema-node';
-import {SchemaStrategy} from './base';
+import {SchemaNode} from '../../schema-node';
+import {SchemaStrategy} from '../schema-strategy';
 import _ from 'lodash';
 
 export class ArrayStrategy extends SchemaStrategy {
@@ -22,16 +22,16 @@ export class ArrayStrategy extends SchemaStrategy {
 		);
 	}
 
+	public addObject(array: any[]) {
+		for (const item of array) {
+			this.items.addObject(item);
+		}
+	}
+
 	public addSchema(schema: any) {
 		super.addSchema(schema);
 		if (schema.items) {
 			this.items.addSchema(schema.items);
-		}
-	}
-
-	public addObject(array: any[]) {
-		for (const item of array) {
-			this.items.addObject(item);
 		}
 	}
 

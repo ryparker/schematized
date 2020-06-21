@@ -4,6 +4,12 @@ export class Format {
 	public keywords = new Set(['format']);
 	public format: string | null = null;
 
+	public addObject(string: string) {
+		this.format = _.isNil(this.format)
+			? Object.keys(formats).find((f) => formats[f].test(string))
+			: this.format;
+	}
+
 	public addSchema(schema: Record<string, any>) {
 		if (_.isNil(this.format)) {
 			this.format = _.get(schema, 'format');
@@ -12,14 +18,9 @@ export class Format {
 		}
 	}
 
-	public addObject(string: string) {
-		this.format = _.isNil(this.format)
-			? Object.keys(formats).find((f) => formats[f].test(string))
-			: this.format;
-	}
-
 	public toSchema(): Record<string, unknown> {
 		if (!this.format) return undefined;
+
 		return {format: this.format};
 	}
 }

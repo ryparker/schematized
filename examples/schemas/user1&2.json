@@ -199,7 +199,8 @@
         "state",
         "territory",
         "type"
-      ]
+      ],
+      "additionalProperties": false
     },
     "missingNecesaryLicenseAgreement": {
       "type": "boolean"
@@ -240,5 +241,6 @@
     "userCountry",
     "userRole",
     "username"
-  ]
+  ],
+  "additionalProperties": false
 }

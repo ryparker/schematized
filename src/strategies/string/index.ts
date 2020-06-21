@@ -1,7 +1,7 @@
 import {Format} from './format';
 import {MaxLength} from './max-length';
 import {MinLength} from './min-length';
-import {TypedSchemaStrategy} from '../base';
+import {TypedSchemaStrategy} from '../typed-schema-strategy';
 import _ from 'lodash';
 
 export class StringStrategy extends TypedSchemaStrategy {
