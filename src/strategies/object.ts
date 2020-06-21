@@ -1,16 +1,16 @@
-import {SchemaNode} from '../node';
+import {SchemaNode} from '../schema-node';
 import {SchemaStrategy} from './base';
 import _ from 'lodash';
 
-export class ObjectS extends SchemaStrategy {
+export class ObjectStrategy extends SchemaStrategy {
 	properties: any;
 	patternProperties: any;
 	required: any;
 	includeEmptyRequired: boolean;
 	keywords = new Set(['type', 'properties', 'patternProperties', 'required']);
 
-	constructor() {
-		super();
+	constructor(schemaNode) {
+		super(schemaNode);
 
 		this.properties = {};
 		this.patternProperties = {};
@@ -18,7 +18,7 @@ export class ObjectS extends SchemaStrategy {
 		this.includeEmptyRequired = false;
 	}
 
-	public addSchema(schema: any) {
+	public addSchema(schema: Record<string, any>) {
 		super.addSchema(schema);
 
 		if (schema.properties) {
@@ -55,7 +55,7 @@ export class ObjectS extends SchemaStrategy {
 		}
 	}
 
-	public addObject(object: any) {
+	public addObject(object: Record<string, unknown>) {
 		const properties = new Set();
 
 		for (const [key, value] of _.toPairs(object)) {
@@ -78,10 +78,15 @@ export class ObjectS extends SchemaStrategy {
 			}
 		}
 
-		if (_.isNil(this.required)) {
+		if (_.isNil(this.required) || this.required.size === 0) {
 			this.required = properties;
 		} else {
-			this.required = new Set([...properties, ...properties]);
+			const newRequirements = _.intersection(
+				[...properties],
+				[...this.required]
+			);
+
+			this.required = new Set(newRequirements);
 		}
 	}
 
@@ -121,7 +126,7 @@ export class ObjectS extends SchemaStrategy {
 		const schemaProperties = {};
 
 		for (const [key, value] of _.toPairs(properties)) {
-			schemaProperties[key] = (value as any).toSchema();
+			schemaProperties[key] = (value as SchemaNode).toSchema();
 		}
 
 		return schemaProperties;

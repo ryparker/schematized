@@ -44,6 +44,9 @@
     "require": [
       "ts-node/register"
     ],
+    "include": [
+      "__tests__/*"
+    ],
     "exclude": [
       "dist/**",
       "docs/**"

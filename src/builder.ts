@@ -1,4 +1,4 @@
-import {SchemaNode} from './node';
+import {SchemaNode} from './schema-node';
 import _ from 'lodash';
 
 const DEFAULT_URI = 'http://json-schema.org/schema#';
@@ -16,7 +16,7 @@ export class SchemaBuilder {
 		this.rootNode.addObject(object);
 	}
 
-	public addSchema(schema: any) {
+	public addSchema(schema: Record<string, any>) {
 		if (schema instanceof SchemaBuilder) {
 			const schemaUri = schema.schemaUri;
 			schema = schema.toSchema();

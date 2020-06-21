@@ -1,5 +1,8 @@
 {
-  "cSpell.words": [
-    "overriden"
-  ]
+  "typescript.implementationsCodeLens.enabled": true,
+  "typescript.referencesCodeLens.enabled": true,
+  "xo.enable": true,
+  "xo.format.enable": true,
+  "editor.defaultFormatter": "samverschueren.linter-xo",
+  "cSpell.words": ["overriden"]
 }

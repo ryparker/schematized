@@ -1,0 +1,1210 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "number",
+      "maximum": 123,
+      "minimum": 123
+    },
+    "version": {
+      "type": "number",
+      "maximum": 0,
+      "minimum": 0
+    },
+    "type": {
+      "type": "string",
+      "maxLength": 3,
+      "minLength": 3
+    },
+    "serialNumber": {
+      "type": "string",
+      "maxLength": 12,
+      "minLength": 12
+    },
+    "effectiveDate": {
+      "type": "string",
+      "maxLength": 20,
+      "minLength": 20,
+      "format": "date-time"
+    },
+    "expirationDate": {
+      "type": "string",
+      "maxLength": 20,
+      "minLength": 20,
+      "format": "date-time"
+    },
+    "signingDate": {
+      "type": "string",
+      "maxLength": 20,
+      "minLength": 20,
+      "format": "date-time"
+    },
+    "signingTimestamp": {
+      "type": "string",
+      "maxLength": 20,
+      "minLength": 20,
+      "format": "date-time"
+    },
+    "clinic": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "maximum": 3,
+          "minimum": 3
+        },
+        "name": {
+          "type": "string",
+          "maxLength": 20,
+          "minLength": 20
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ]
+    },
+    "clinic_id": {
+      "type": "number",
+      "maximum": 3,
+      "minimum": 3
+    },
+    "vet": {
+      "type": "null"
+    },
+    "lastUpdated": {
+      "type": "string",
+      "maxLength": 20,
+      "minLength": 20,
+      "format": "date-time"
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "maxLength": 6,
+          "minLength": 6
+        }
+      },
+      "required": [
+        "status"
+      ]
+    },
+    "brandInspectionDate": {
+      "type": "null"
+    },
+    "brandInspectionNumber": {
+      "type": "null"
+    },
+    "carrierType": {
+      "type": "string",
+      "maxLength": 13,
+      "minLength": 13
+    },
+    "headCount": {
+      "type": "number",
+      "maximum": 1,
+      "minimum": 1
+    },
+    "herdFreeFor": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "maxLength": 14,
+        "minLength": 9
+      }
+    },
+    "herdStatusNumber": {
+      "type": "null"
+    },
+    "inspectionDate": {
+      "type": "string",
+      "maxLength": 20,
+      "minLength": 20,
+      "format": "date-time"
+    },
+    "shippingDate": {
+      "type": "null"
+    },
+    "label": {
+      "type": "string",
+      "maxLength": 39,
+      "minLength": 39
+    },
+    "permitNumber": {
+      "type": "string",
+      "maxLength": 9,
+      "minLength": 9
+    },
+    "purposeOfMovement": {
+      "type": "string",
+      "maxLength": 8,
+      "minLength": 8
+    },
+    "remarks": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "maxLength": 19,
+        "minLength": 19
+      }
+    },
+    "species": {
+      "type": "string",
+      "maxLength": 6,
+      "minLength": 6
+    },
+    "speciesType": {
+      "type": "null"
+    },
+    "animals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "maximum": 27,
+            "minimum": 27
+          },
+          "breed": {
+            "type": "string",
+            "maxLength": 7,
+            "minLength": 7
+          },
+          "species": {
+            "type": "string",
+            "maxLength": 6,
+            "minLength": 6
+          },
+          "ids": {
+            "type": "string",
+            "maxLength": 3,
+            "minLength": 3
+          },
+          "idTypes": {
+            "type": "string",
+            "maxLength": 4,
+            "minLength": 4
+          },
+          "label": {
+            "type": "null"
+          },
+          "remarks": {
+            "type": "null"
+          },
+          "origin_id": {
+            "type": "number",
+            "maximum": 28,
+            "minimum": 28
+          },
+          "color": {
+            "type": "string",
+            "maxLength": 5,
+            "minLength": 5
+          },
+          "name": {
+            "type": "string",
+            "maxLength": 10,
+            "minLength": 10
+          },
+          "age": {
+            "type": "null"
+          },
+          "gender": {
+            "type": "string",
+            "maxLength": 4,
+            "minLength": 4
+          },
+          "version": {
+            "type": "number",
+            "maximum": 2,
+            "minimum": 2
+          },
+          "left_id": {
+            "type": "number",
+            "maximum": 4,
+            "minimum": 4
+          },
+          "front_id": {
+            "type": "number",
+            "maximum": 15,
+            "minimum": 15
+          },
+          "right_id": {
+            "type": "number",
+            "maximum": 6,
+            "minimum": 6
+          },
+          "headCount": {
+            "type": "number",
+            "maximum": 1,
+            "minimum": 1
+          },
+          "tests": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number",
+                  "maximum": 22,
+                  "minimum": 22
+                },
+                "name": {
+                  "type": "string",
+                  "maxLength": 3,
+                  "minLength": 3
+                },
+                "date": {
+                  "type": "string",
+                  "maxLength": 24,
+                  "minLength": 24,
+                  "format": "date-time"
+                },
+                "type": {
+                  "type": "string",
+                  "maxLength": 5,
+                  "minLength": 5
+                },
+                "version": {
+                  "type": "number",
+                  "maximum": 1,
+                  "minimum": 1
+                },
+                "sentDate": {
+                  "type": "string",
+                  "maxLength": 24,
+                  "minLength": 24,
+                  "format": "date-time"
+                },
+                "remarks": {
+                  "type": "string",
+                  "maxLength": 29,
+                  "minLength": 29
+                },
+                "purpose": {
+                  "type": "string",
+                  "maxLength": 6,
+                  "minLength": 6
+                },
+                "clinicAccountNumberForLabs": {
+                  "type": "string",
+                  "maxLength": 7,
+                  "minLength": 7
+                },
+                "animal": {
+                  "type": "string",
+                  "maxLength": 10,
+                  "minLength": 10
+                },
+                "gvlLab_id": {
+                  "type": "number",
+                  "maximum": 9,
+                  "minimum": 9
+                },
+                "accession": {
+                  "type": "string",
+                  "maxLength": 10,
+                  "minLength": 10
+                },
+                "result": {
+                  "type": "string",
+                  "maxLength": 8,
+                  "minLength": 8
+                },
+                "gvlId": {
+                  "type": "string",
+                  "maxLength": 4,
+                  "minLength": 4
+                },
+                "lab": {
+                  "type": "string",
+                  "maxLength": 19,
+                  "minLength": 19
+                }
+              },
+              "required": [
+                "accession",
+                "animal",
+                "clinicAccountNumberForLabs",
+                "date",
+                "gvlId",
+                "gvlLab_id",
+                "id",
+                "lab",
+                "name",
+                "purpose",
+                "remarks",
+                "result",
+                "sentDate",
+                "type",
+                "version"
+              ]
+            }
+          },
+          "vacs": {
+            "type": "array"
+          }
+        },
+        "required": [
+          "age",
+          "breed",
+          "color",
+          "front_id",
+          "gender",
+          "headCount",
+          "id",
+          "idTypes",
+          "ids",
+          "label",
+          "left_id",
+          "name",
+          "origin_id",
+          "remarks",
+          "right_id",
+          "species",
+          "tests",
+          "vacs",
+          "version"
+        ]
+      }
+    },
+    "areaStatuses": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "maxLength": 16,
+        "minLength": 8
+      }
+    },
+    "carrier": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "maximum": 53,
+          "minimum": 53
+        },
+        "lastName": {
+          "type": "string",
+          "maxLength": 9,
+          "minLength": 9
+        },
+        "cellPhone": {
+          "type": "string",
+          "maxLength": 12,
+          "minLength": 12
+        },
+        "orgName": {
+          "type": "null"
+        },
+        "ownerEmail": {
+          "type": "string",
+          "maxLength": 23,
+          "minLength": 23,
+          "format": "email"
+        },
+        "mi": {
+          "type": "string",
+          "maxLength": 1,
+          "minLength": 1
+        },
+        "version": {
+          "type": "number",
+          "maximum": 12,
+          "minimum": 12
+        },
+        "commonName": {
+          "type": "string",
+          "maxLength": 19,
+          "minLength": 19
+        },
+        "name": {
+          "type": "string",
+          "maxLength": 19,
+          "minLength": 19
+        },
+        "label": {
+          "type": "string",
+          "maxLength": 19,
+          "minLength": 19
+        },
+        "type": {
+          "type": "string",
+          "maxLength": 6,
+          "minLength": 6
+        }
+      },
+      "required": [
+        "cellPhone",
+        "commonName",
+        "id",
+        "label",
+        "lastName",
+        "mi",
+        "name",
+        "orgName",
+        "ownerEmail",
+        "type",
+        "version"
+      ]
+    },
+    "carrierPremises": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "maximum": 61,
+          "minimum": 61
+        },
+        "postalCode": {
+          "type": "string",
+          "maxLength": 5,
+          "minLength": 5
+        },
+        "fax": {
+          "type": "null"
+        },
+        "county": {
+          "type": "null"
+        },
+        "country": {
+          "type": "string",
+          "maxLength": 3,
+          "minLength": 3
+        },
+        "nationalId": {
+          "type": "string",
+          "maxLength": 6,
+          "minLength": 6
+        },
+        "state": {
+          "type": "string",
+          "maxLength": 2,
+          "minLength": 2
+        },
+        "plus4": {
+          "type": "null"
+        },
+        "addressLine1": {
+          "type": "string",
+          "maxLength": 16,
+          "minLength": 16
+        },
+        "addressLine2": {
+          "type": "string",
+          "maxLength": 9,
+          "minLength": 9
+        },
+        "version": {
+          "type": "number",
+          "maximum": 1,
+          "minimum": 1
+        },
+        "city": {
+          "type": "string",
+          "maxLength": 4,
+          "minLength": 4
+        },
+        "longitude": {
+          "type": "number",
+          "maximum": -93.64271,
+          "minimum": -93.64271
+        },
+        "latitude": {
+          "type": "number",
+          "maximum": 42.048703,
+          "minimum": 42.048703
+        }
+      },
+      "required": [
+        "addressLine1",
+        "addressLine2",
+        "city",
+        "country",
+        "county",
+        "fax",
+        "id",
+        "latitude",
+        "longitude",
+        "nationalId",
+        "plus4",
+        "postalCode",
+        "state",
+        "version"
+      ]
+    },
+    "consignee": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "maximum": 53,
+          "minimum": 53
+        },
+        "lastName": {
+          "type": "string",
+          "maxLength": 9,
+          "minLength": 9
+        },
+        "cellPhone": {
+          "type": "string",
+          "maxLength": 12,
+          "minLength": 12
+        },
+        "orgName": {
+          "type": "null"
+        },
+        "ownerEmail": {
+          "type": "string",
+          "maxLength": 23,
+          "minLength": 23,
+          "format": "email"
+        },
+        "mi": {
+          "type": "string",
+          "maxLength": 1,
+          "minLength": 1
+        },
+        "version": {
+          "type": "number",
+          "maximum": 12,
+          "minimum": 12
+        },
+        "commonName": {
+          "type": "string",
+          "maxLength": 19,
+          "minLength": 19
+        },
+        "name": {
+          "type": "string",
+          "maxLength": 19,
+          "minLength": 19
+        },
+        "label": {
+          "type": "string",
+          "maxLength": 19,
+          "minLength": 19
+        },
+        "type": {
+          "type": "string",
+          "maxLength": 6,
+          "minLength": 6
+        }
+      },
+      "required": [
+        "cellPhone",
+        "commonName",
+        "id",
+        "label",
+        "lastName",
+        "mi",
+        "name",
+        "orgName",
+        "ownerEmail",
+        "type",
+        "version"
+      ]
+    },
+    "consigneePremises": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "maximum": 61,
+          "minimum": 61
+        },
+        "postalCode": {
+          "type": "string",
+          "maxLength": 5,
+          "minLength": 5
+        },
+        "fax": {
+          "type": "null"
+        },
+        "county": {
+          "type": "null"
+        },
+        "country": {
+          "type": "string",
+          "maxLength": 3,
+          "minLength": 3
+        },
+        "nationalId": {
+          "type": "string",
+          "maxLength": 6,
+          "minLength": 6
+        },
+        "state": {
+          "type": "string",
+          "maxLength": 2,
+          "minLength": 2
+        },
+        "plus4": {
+          "type": "null"
+        },
+        "addressLine1": {
+          "type": "string",
+          "maxLength": 16,
+          "minLength": 16
+        },
+        "addressLine2": {
+          "type": "string",
+          "maxLength": 9,
+          "minLength": 9
+        },
+        "version": {
+          "type": "number",
+          "maximum": 1,
+          "minimum": 1
+        },
+        "city": {
+          "type": "string",
+          "maxLength": 4,
+          "minLength": 4
+        },
+        "longitude": {
+          "type": "number",
+          "maximum": -93.64271,
+          "minimum": -93.64271
+        },
+        "latitude": {
+          "type": "number",
+          "maximum": 42.048703,
+          "minimum": 42.048703
+        }
+      },
+      "required": [
+        "addressLine1",
+        "addressLine2",
+        "city",
+        "country",
+        "county",
+        "fax",
+        "id",
+        "latitude",
+        "longitude",
+        "nationalId",
+        "plus4",
+        "postalCode",
+        "state",
+        "version"
+      ]
+    },
+    "consignor": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "maximum": 28,
+          "minimum": 28
+        },
+        "lastName": {
+          "type": "string",
+          "maxLength": 7,
+          "minLength": 7
+        },
+        "cellPhone": {
+          "type": "string",
+          "maxLength": 12,
+          "minLength": 12
+        },
+        "orgName": {
+          "type": "null"
+        },
+        "ownerEmail": {
+          "type": "string",
+          "maxLength": 9,
+          "minLength": 9,
+          "format": "email"
+        },
+        "mi": {
+          "type": "null"
+        },
+        "version": {
+          "type": "number",
+          "maximum": 1,
+          "minimum": 1
+        },
+        "commonName": {
+          "type": "string",
+          "maxLength": 13,
+          "minLength": 13
+        },
+        "name": {
+          "type": "string",
+          "maxLength": 13,
+          "minLength": 13
+        },
+        "label": {
+          "type": "string",
+          "maxLength": 13,
+          "minLength": 13
+        },
+        "type": {
+          "type": "string",
+          "maxLength": 6,
+          "minLength": 6
+        }
+      },
+      "required": [
+        "cellPhone",
+        "commonName",
+        "id",
+        "label",
+        "lastName",
+        "mi",
+        "name",
+        "orgName",
+        "ownerEmail",
+        "type",
+        "version"
+      ]
+    },
+    "consignorPremises": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "maximum": 121,
+          "minimum": 121
+        },
+        "postalCode": {
+          "type": "string",
+          "maxLength": 5,
+          "minLength": 5
+        },
+        "fax": {
+          "type": "null"
+        },
+        "county": {
+          "type": "null"
+        },
+        "country": {
+          "type": "string",
+          "maxLength": 3,
+          "minLength": 3
+        },
+        "nationalId": {
+          "type": "string",
+          "maxLength": 10,
+          "minLength": 10
+        },
+        "state": {
+          "type": "string",
+          "maxLength": 2,
+          "minLength": 2
+        },
+        "plus4": {
+          "type": "null"
+        },
+        "addressLine1": {
+          "type": "string",
+          "maxLength": 16,
+          "minLength": 16
+        },
+        "addressLine2": {
+          "type": "null"
+        },
+        "version": {
+          "type": "number",
+          "maximum": 1,
+          "minimum": 1
+        },
+        "city": {
+          "type": "string",
+          "maxLength": 11,
+          "minLength": 11
+        },
+        "longitude": {
+          "type": "number",
+          "maximum": -93.64271,
+          "minimum": -93.64271
+        },
+        "latitude": {
+          "type": "number",
+          "maximum": 42.048703,
+          "minimum": 42.048703
+        }
+      },
+      "required": [
+        "addressLine1",
+        "addressLine2",
+        "city",
+        "country",
+        "county",
+        "fax",
+        "id",
+        "latitude",
+        "longitude",
+        "nationalId",
+        "plus4",
+        "postalCode",
+        "state",
+        "version"
+      ]
+    },
+    "destination": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "maximum": 29,
+          "minimum": 29
+        },
+        "lastName": {
+          "type": "string",
+          "maxLength": 4,
+          "minLength": 4
+        },
+        "cellPhone": {
+          "type": "string",
+          "maxLength": 12,
+          "minLength": 12
+        },
+        "orgName": {
+          "type": "null"
+        },
+        "ownerEmail": {
+          "type": "string",
+          "maxLength": 19,
+          "minLength": 19,
+          "format": "email"
+        },
+        "mi": {
+          "type": "null"
+        },
+        "version": {
+          "type": "null"
+        },
+        "commonName": {
+          "type": "string",
+          "maxLength": 11,
+          "minLength": 11
+        },
+        "name": {
+          "type": "string",
+          "maxLength": 11,
+          "minLength": 11
+        },
+        "label": {
+          "type": "string",
+          "maxLength": 11,
+          "minLength": 11
+        },
+        "type": {
+          "type": "string",
+          "maxLength": 6,
+          "minLength": 6
+        }
+      },
+      "required": [
+        "cellPhone",
+        "commonName",
+        "id",
+        "label",
+        "lastName",
+        "mi",
+        "name",
+        "orgName",
+        "ownerEmail",
+        "type",
+        "version"
+      ]
+    },
+    "destinationPremises": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "maximum": 82,
+          "minimum": 82
+        },
+        "postalCode": {
+          "type": "string",
+          "maxLength": 5,
+          "minLength": 5
+        },
+        "fax": {
+          "type": "null"
+        },
+        "county": {
+          "type": "null"
+        },
+        "country": {
+          "type": "string",
+          "maxLength": 3,
+          "minLength": 3
+        },
+        "nationalId": {
+          "type": "string",
+          "maxLength": 6,
+          "minLength": 6
+        },
+        "state": {
+          "type": "string",
+          "maxLength": 2,
+          "minLength": 2
+        },
+        "plus4": {
+          "type": "null"
+        },
+        "addressLine1": {
+          "type": "string",
+          "maxLength": 15,
+          "minLength": 15
+        },
+        "addressLine2": {
+          "type": "string",
+          "maxLength": 9,
+          "minLength": 9
+        },
+        "version": {
+          "type": "number",
+          "maximum": 1,
+          "minimum": 1
+        },
+        "city": {
+          "type": "string",
+          "maxLength": 4,
+          "minLength": 4
+        },
+        "longitude": {
+          "type": "number",
+          "maximum": -93.64271,
+          "minimum": -93.64271
+        },
+        "latitude": {
+          "type": "number",
+          "maximum": 42.048703,
+          "minimum": 42.048703
+        }
+      },
+      "required": [
+        "addressLine1",
+        "addressLine2",
+        "city",
+        "country",
+        "county",
+        "fax",
+        "id",
+        "latitude",
+        "longitude",
+        "nationalId",
+        "plus4",
+        "postalCode",
+        "state",
+        "version"
+      ]
+    },
+    "origin": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "maximum": 28,
+          "minimum": 28
+        },
+        "lastName": {
+          "type": "string",
+          "maxLength": 7,
+          "minLength": 7
+        },
+        "cellPhone": {
+          "type": "string",
+          "maxLength": 12,
+          "minLength": 12
+        },
+        "orgName": {
+          "type": "null"
+        },
+        "ownerEmail": {
+          "type": "string",
+          "maxLength": 9,
+          "minLength": 9,
+          "format": "email"
+        },
+        "mi": {
+          "type": "null"
+        },
+        "version": {
+          "type": "number",
+          "maximum": 1,
+          "minimum": 1
+        },
+        "commonName": {
+          "type": "string",
+          "maxLength": 13,
+          "minLength": 13
+        },
+        "name": {
+          "type": "string",
+          "maxLength": 13,
+          "minLength": 13
+        },
+        "label": {
+          "type": "string",
+          "maxLength": 13,
+          "minLength": 13
+        },
+        "type": {
+          "type": "string",
+          "maxLength": 6,
+          "minLength": 6
+        }
+      },
+      "required": [
+        "cellPhone",
+        "commonName",
+        "id",
+        "label",
+        "lastName",
+        "mi",
+        "name",
+        "orgName",
+        "ownerEmail",
+        "type",
+        "version"
+      ]
+    },
+    "originPremises": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "maximum": 121,
+          "minimum": 121
+        },
+        "postalCode": {
+          "type": "string",
+          "maxLength": 5,
+          "minLength": 5
+        },
+        "fax": {
+          "type": "null"
+        },
+        "county": {
+          "type": "null"
+        },
+        "country": {
+          "type": "string",
+          "maxLength": 3,
+          "minLength": 3
+        },
+        "nationalId": {
+          "type": "string",
+          "maxLength": 10,
+          "minLength": 10
+        },
+        "state": {
+          "type": "string",
+          "maxLength": 2,
+          "minLength": 2
+        },
+        "plus4": {
+          "type": "null"
+        },
+        "addressLine1": {
+          "type": "string",
+          "maxLength": 16,
+          "minLength": 16
+        },
+        "addressLine2": {
+          "type": "null"
+        },
+        "version": {
+          "type": "number",
+          "maximum": 1,
+          "minimum": 1
+        },
+        "city": {
+          "type": "string",
+          "maxLength": 11,
+          "minLength": 11
+        },
+        "longitude": {
+          "type": "number",
+          "maximum": -93.64271,
+          "minimum": -93.64271
+        },
+        "latitude": {
+          "type": "number",
+          "maximum": 42.048703,
+          "minimum": 42.048703
+        }
+      },
+      "required": [
+        "addressLine1",
+        "addressLine2",
+        "city",
+        "country",
+        "county",
+        "fax",
+        "id",
+        "latitude",
+        "longitude",
+        "nationalId",
+        "plus4",
+        "postalCode",
+        "state",
+        "version"
+      ]
+    },
+    "questions": {
+      "type": "array"
+    },
+    "verified": {
+      "type": "null"
+    },
+    "ruleList": {
+      "type": "null"
+    }
+  },
+  "required": [
+    "animals",
+    "areaStatuses",
+    "brandInspectionDate",
+    "brandInspectionNumber",
+    "carrier",
+    "carrierPremises",
+    "carrierType",
+    "clinic",
+    "clinic_id",
+    "consignee",
+    "consigneePremises",
+    "consignor",
+    "consignorPremises",
+    "destination",
+    "destinationPremises",
+    "effectiveDate",
+    "expirationDate",
+    "headCount",
+    "herdFreeFor",
+    "herdStatusNumber",
+    "id",
+    "inspectionDate",
+    "label",
+    "lastUpdated",
+    "metadata",
+    "origin",
+    "originPremises",
+    "permitNumber",
+    "purposeOfMovement",
+    "questions",
+    "remarks",
+    "ruleList",
+    "serialNumber",
+    "shippingDate",
+    "signingDate",
+    "signingTimestamp",
+    "species",
+    "speciesType",
+    "type",
+    "verified",
+    "version",
+    "vet"
+  ]
+}

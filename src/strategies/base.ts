@@ -1,19 +1,18 @@
-import {SchemaNode} from '../node';
+import {SchemaNode} from '../schema-node';
 import _ from 'lodash';
 
-export class SchemaStrategy extends Object {
+export abstract class SchemaStrategy {
 	keywords = new Set(['type']);
 	nodeClass: SchemaNode;
 	extraKeywords: any;
 	public type: string;
 
-	constructor() {
-		super();
-		this.nodeClass = new SchemaNode();
+	constructor(schemaNode) {
+		this.nodeClass = schemaNode;
 		this.extraKeywords = {};
 	}
 
-	public addSchema(schema: any) {
+	public addSchema(schema: Record<string, unknown>) {
 		this.addExtraKeywords(schema);
 	}
 
@@ -33,7 +32,7 @@ export class SchemaStrategy extends Object {
 		}
 	}
 
-	public matchSchema(_schema: any) {
+	public matchSchema(_schema: Record<string, unknown>) {
 		throw new Error('matchSchema not implemented');
 	}
 
@@ -47,9 +46,7 @@ export class SchemaStrategy extends Object {
 }
 
 export abstract class TypedSchemaStrategy extends SchemaStrategy {
-	public type: string;
-
-	public matchSchema(schema: any) {
+	public matchSchema(schema: Record<string, unknown>) {
 		return _.get(schema, 'type') === this.type;
 	}
 

@@ -3,7 +3,7 @@ import {SchemaStrategy, TypedSchemaStrategy} from './base';
 import _ from 'lodash';
 
 export class Typeless extends SchemaStrategy {
-	public matchSchema(schema: any) {
+	public matchSchema(schema: Record<string, unknown>) {
 		return !_.includes(schema, 'type');
 	}
 
@@ -17,22 +17,6 @@ export class Boolean extends TypedSchemaStrategy {
 
 	public matchObject(object: any) {
 		return _.isBoolean(object);
-	}
-}
-
-export class String extends TypedSchemaStrategy {
-	public type = 'string';
-
-	public matchObject(object: any) {
-		return _.isString(object);
-	}
-}
-
-export class Number extends TypedSchemaStrategy {
-	public type = 'number';
-
-	public matchObject(object: any) {
-		return _.isNumber(object);
 	}
 }
 

@@ -1,5 +1,4 @@
-import {BASIC_SCHEMA_STRATEGIES, Typeless} from './strategies';
-
+import {BASIC_SCHEMA_STRATEGIES} from './strategies';
 import _ from 'lodash';
 
 export class SchemaNode {
@@ -15,10 +14,10 @@ export class SchemaNode {
 			schema = schema.toSchema();
 		}
 
-		for (const subschema of this.getSubSchemas(schema)) {
+		for (const subSchema of this.getSubSchemas(schema)) {
 			// Delegate to SchemaType object
-			const activeStrategy = this.getStrategyForSchema(subschema);
-			activeStrategy.addSchema(subschema);
+			const activeStrategy = this.getStrategyForSchema(subSchema);
+			activeStrategy.addSchema(subSchema);
 		}
 
 		// Return this for easy method chaining
@@ -47,15 +46,15 @@ export class SchemaNode {
 		}
 
 		if (_.size(types) > 0) {
-			let newType;
+			let schemaType;
 
-			if (_.size(types) === 1) {
-				newType = _.last([...types]);
+			if (types.size === 1) {
+				schemaType = _.last([...types]);
 			} else {
-				newType = _.orderBy([...types]);
+				schemaType = _.orderBy([...types]);
 			}
 
-			generatedSchemas = [{type: newType}, ...generatedSchemas];
+			generatedSchemas = [{type: schemaType}, ...generatedSchemas];
 		}
 
 		let resultSchema;
@@ -83,7 +82,7 @@ export class SchemaNode {
 		kind: 'object' | 'schema',
 		schemaOrObject: Record<string, unknown>
 	) {
-		const method = _.camelCase('match' + kind);
+		const method = 'match' + _.capitalize(kind);
 
 		for (const activeStrategy of this.activeStrategies) {
 			const isMatch = _.invoke(activeStrategy, method, schemaOrObject);
@@ -93,11 +92,11 @@ export class SchemaNode {
 			}
 		}
 
+		const schemaNode = new SchemaNode();
+
 		// Check all potential types
 		for (const Strategy of this.strategies) {
-			const method = 'match' + _.capitalize(kind);
-
-			const strategyInstance = new Strategy();
+			const strategyInstance = new Strategy(schemaNode);
 
 			const isMatch = _.invoke(strategyInstance, method, schemaOrObject);
 
@@ -105,14 +104,14 @@ export class SchemaNode {
 				const activeStrategy = strategyInstance;
 
 				// Incorporate typeless strategy if it exists
-				if (
-					this.activeStrategies &&
-					this.activeStrategies[this.activeStrategies.length - 1] instanceof
-						Typeless
-				) {
-					const typeless = this.activeStrategies.pop();
-					activeStrategy.addSchema(typeless.toSchema());
-				}
+				// 	if (
+				// 		this.activeStrategies &&
+				// 		this.activeStrategies[this.activeStrategies.length - 1] instanceof
+				// 			Typeless
+				// 	) {
+				// 		const typeless = this.activeStrategies.pop();
+				// 		activeStrategy.addSchema(typeless.toSchema());
+				// 	}
 
 				this.activeStrategies.push(activeStrategy);
 				return activeStrategy;
@@ -120,15 +119,15 @@ export class SchemaNode {
 		}
 
 		// No match found, if typeless add to first strategy
-		const typelessInstance = new Typeless();
-		if (kind === 'schema' && typelessInstance.matchSchema(schemaOrObject)) {
-			if (this.activeStrategies.length === 0) {
-				this.activeStrategies.push(typelessInstance);
-			}
+		// const typelessInstance = new Typeless(schemaNode);
+		// if (kind === 'schema' && typelessInstance.matchSchema(schemaOrObject)) {
+		// 	if (this.activeStrategies.length === 0) {
+		// 		this.activeStrategies.push(typelessInstance);
+		// 	}
 
-			const activeStrategy = this.activeStrategies[0];
-			return activeStrategy;
-		}
+		// 	const activeStrategy = this.activeStrategies[0];
+		// 	return activeStrategy;
+		// }
 
 		// If no match found, raise an error
 		throw new Error(
@@ -140,16 +139,16 @@ export class SchemaNode {
 		);
 	}
 
-	private getSubSchemas(schema: any): any {
+	private getSubSchemas(schema: Record<string, any>): any {
 		if (schema.anyOf) {
-			const subschemas = [];
+			const subSchemas = new Set();
 			for (const anyof of schema.anyOf) {
-				for (const subschema of this.getSubSchemas(anyof)) {
-					subschemas.push(subschema);
+				for (const subSchema of this.getSubSchemas(anyof)) {
+					subSchemas.add(subSchema);
 				}
 			}
 
-			return subschemas;
+			return [...subSchemas];
 		}
 
 		if (_.isArray(_.get(schema, 'type'))) {

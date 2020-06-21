@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object",
+  "properties": {
+    "username": {
+      "type": "string",
+      "maxLength": 7,
+      "minLength": 7
+    },
+    "age": {
+      "type": "number",
+      "maximum": 12,
+      "minimum": 12
+    },
+    "phone": {
+      "type": "string",
+      "maxLength": 12,
+      "minLength": 12
+    },
+    "email": {
+      "type": "string",
+      "maxLength": 15,
+      "minLength": 15,
+      "format": "email"
+    },
+    "role": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "maxLength": 4,
+        "minLength": 4
+      }
+    },
+    "person": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string",
+          "maxLength": 4,
+          "minLength": 4
+        },
+        "lastName": {
+          "type": "string",
+          "maxLength": 6,
+          "minLength": 6
+        }
+      },
+      "required": [
+        "firstName",
+        "lastName"
+      ]
+    }
+  },
+  "required": [
+    "age",
+    "email",
+    "person",
+    "phone",
+    "role",
+    "username"
+  ]
+}

@@ -1,16 +1,16 @@
-import {Boolean, Integer, Null, Number, String} from './scalar';
+import {Boolean, Integer, Null} from './scalar';
 
-import {Array} from './array';
-import {ObjectS} from './object';
-
-export {Typeless} from './scalar';
+import {ArrayStrategy} from './array';
+import {NumberStrategy} from './number';
+import {ObjectStrategy} from './object';
+import {StringStrategy} from './string';
 
 export const BASIC_SCHEMA_STRATEGIES = [
 	Boolean,
 	Null,
-	Number,
+	NumberStrategy,
 	Integer,
-	String,
-	Array,
-	ObjectS
+	StringStrategy,
+	ArrayStrategy,
+	ObjectStrategy
 ];

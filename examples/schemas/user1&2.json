@@ -1,0 +1,242 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object",
+  "properties": {
+    "userRole": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "maxLength": 13,
+        "minLength": 8
+      }
+    },
+    "name": {
+      "type": "string",
+      "maxLength": 11,
+      "minLength": 11
+    },
+    "displayName": {
+      "type": "string",
+      "maxLength": 6,
+      "minLength": 3
+    },
+    "lastLogin": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "maxLength": 20,
+          "minLength": 20,
+          "format": "date-time"
+        }
+      ]
+    },
+    "missingNecessaryLicenseAgreement": {
+      "type": "boolean"
+    },
+    "availableApps": {
+      "type": "string",
+      "maxLength": 75,
+      "minLength": 63
+    },
+    "enabledApps": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "maxLength": 10,
+        "minLength": 7
+      }
+    },
+    "betaFeatures": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "maxLength": 16,
+            "minLength": 13
+          }
+        }
+      ]
+    },
+    "settings": {
+      "type": "array"
+    },
+    "canSignCerts": {
+      "type": "boolean"
+    },
+    "appUserId": {
+      "type": "number",
+      "maximum": 100000,
+      "minimum": 47
+    },
+    "email": {
+      "type": "string",
+      "maxLength": 25,
+      "minLength": 18,
+      "format": "email"
+    },
+    "username": {
+      "type": "string",
+      "maxLength": 8,
+      "minLength": 4
+    },
+    "userCountry": {
+      "type": "string",
+      "maxLength": 3,
+      "minLength": 3
+    },
+    "himsAccess": {
+      "type": "boolean"
+    },
+    "enabledFeatures": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "maxLength": 13,
+        "minLength": 3
+      }
+    },
+    "vetTechId": {
+      "type": "number",
+      "maximum": 38,
+      "minimum": 38
+    },
+    "clinicId": {
+      "type": "number",
+      "maximum": 100000,
+      "minimum": 3
+    },
+    "clinicName": {
+      "type": "string",
+      "maxLength": 20,
+      "minLength": 20
+    },
+    "clinicAnimalType": {
+      "type": "null"
+    },
+    "includeImage": {
+      "type": "boolean"
+    },
+    "giveNewContactsMvlAccess": {
+      "type": "boolean"
+    },
+    "account": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "maxLength": 6,
+          "minLength": 6
+        },
+        "name": {
+          "type": "string",
+          "maxLength": 20,
+          "minLength": 13
+        },
+        "id": {
+          "type": "number",
+          "maximum": 100000,
+          "minimum": 3
+        },
+        "plan": {
+          "type": "string",
+          "maxLength": 4,
+          "minLength": 4
+        },
+        "territory": {
+          "type": "string",
+          "maxLength": 7,
+          "minLength": 7
+        },
+        "address1": {
+          "type": "string",
+          "maxLength": 15,
+          "minLength": 1
+        },
+        "address2": {
+          "type": "string",
+          "maxLength": 14,
+          "minLength": 9
+        },
+        "city": {
+          "type": "string",
+          "maxLength": 6,
+          "minLength": 4
+        },
+        "postalcode": {
+          "type": "string",
+          "maxLength": 5,
+          "minLength": 5
+        },
+        "state": {
+          "type": "string",
+          "maxLength": 2,
+          "minLength": 2
+        },
+        "country": {
+          "type": "string",
+          "maxLength": 3,
+          "minLength": 3
+        }
+      },
+      "required": [
+        "address1",
+        "address2",
+        "city",
+        "country",
+        "id",
+        "name",
+        "plan",
+        "postalcode",
+        "state",
+        "territory",
+        "type"
+      ]
+    },
+    "missingNecesaryLicenseAgreement": {
+      "type": "boolean"
+    },
+    "licenseStates": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "maxLength": 7,
+        "minLength": 2
+      }
+    },
+    "vetId": {
+      "type": "number",
+      "maximum": 1,
+      "minimum": 1
+    }
+  },
+  "required": [
+    "account",
+    "appUserId",
+    "availableApps",
+    "betaFeatures",
+    "canSignCerts",
+    "clinicAnimalType",
+    "clinicId",
+    "clinicName",
+    "displayName",
+    "email",
+    "enabledApps",
+    "enabledFeatures",
+    "giveNewContactsMvlAccess",
+    "himsAccess",
+    "includeImage",
+    "lastLogin",
+    "name",
+    "settings",
+    "userCountry",
+    "userRole",
+    "username"
+  ]
+}

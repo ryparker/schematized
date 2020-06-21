@@ -1,13 +1,13 @@
-import {SchemaNode} from '../node';
+import {SchemaNode} from '../schema-node';
 import {SchemaStrategy} from './base';
 import _ from 'lodash';
 
-export class Array extends SchemaStrategy {
+export class ArrayStrategy extends SchemaStrategy {
 	public keywords = new Set(['type', 'items']);
-	public items: any;
+	public items: SchemaNode;
 
-	constructor() {
-		super();
+	constructor(schemaNode) {
+		super(schemaNode);
 		this.items = new SchemaNode();
 	}
 
@@ -29,8 +29,8 @@ export class Array extends SchemaStrategy {
 		}
 	}
 
-	public addObject(object: any) {
-		for (const item of object) {
+	public addObject(array: any[]) {
+		for (const item of array) {
 			this.items.addObject(item);
 		}
 	}
@@ -40,7 +40,15 @@ export class Array extends SchemaStrategy {
 		schema.type = 'array';
 
 		if (this.items) {
-			schema.items = this.items.toSchema();
+			const items = this.items.toSchema();
+
+			if (items?.anyOf && Array.isArray(items.anyOf)) {
+				console.log(items.anyOf);
+				items.anyOf = _.uniqWith(items.anyOf, _.isEqual);
+				console.log(items.anyOf);
+			}
+
+			schema.items = items;
 		}
 
 		return schema;

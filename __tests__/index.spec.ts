@@ -1,5 +1,7 @@
 import AJV from 'ajv';
-import {SchemaBuilder} from '.';
+import {SchemaBuilder} from '../src';
+import fs from 'fs';
+import path from 'path';
 import test from 'ava';
 
 test('Outputs profile JSON schema, when provided one JSON payload.', async (t) => {
@@ -9,6 +11,11 @@ test('Outputs profile JSON schema, when provided one JSON payload.', async (t) =
 
 	instance.addObject(samplePayload);
 	const output = instance.toSchema();
+
+	await fs.promises.writeFile(
+		path.resolve(__dirname, '../examples/schemas/profile.json'),
+		JSON.stringify(output, null, 2)
+	);
 
 	const schemaValidator = new AJV();
 	const isValidSchema = schemaValidator.validateSchema(output);
@@ -30,6 +37,12 @@ test('Outputs /gettoken JSON schema, when provided one JSON payload.', async (t)
 	instance.addObject(samplePayload);
 	const output = instance.toSchema();
 
+	await fs.promises.writeFile(
+		path.resolve(__dirname, '../examples/schemas/auth.json'),
+
+		JSON.stringify(output, null, 2)
+	);
+
 	const schemaValidator = new AJV();
 	const isValidSchema = schemaValidator.validateSchema(output);
 	t.assert(isValidSchema);
@@ -50,6 +63,12 @@ test('Outputs /documents(cvi) JSON schema, when provided one JSON payload.', asy
 	instance.addObject(samplePayload);
 	const output = instance.toSchema();
 
+	await fs.promises.writeFile(
+		path.resolve(__dirname, '../examples/schemas/document.json'),
+
+		JSON.stringify(output, null, 2)
+	);
+
 	const schemaValidator = new AJV();
 	const isValidSchema = schemaValidator.validateSchema(output);
 	t.assert(isValidSchema);
@@ -69,6 +88,12 @@ test('Outputs /user JSON schema, when provided one JSON payload.', async (t) => 
 
 	instance.addObject(samplePayload);
 	const output = instance.toSchema();
+
+	await fs.promises.writeFile(
+		path.resolve(__dirname, '../examples/schemas/user.json'),
+
+		JSON.stringify(output, null, 2)
+	);
 
 	const schemaValidator = new AJV();
 	const isValidSchema = schemaValidator.validateSchema(output);
@@ -95,6 +120,12 @@ test('Outputs /user & /user2 JSON schema, when provided one JSON payload.', asyn
 
 	const output = instance.toSchema();
 
+	await fs.promises.writeFile(
+		path.resolve(__dirname, '../examples/schemas/user1&2.json'),
+
+		JSON.stringify(output, null, 2)
+	);
+
 	const schemaValidator = new AJV();
 	const isValidSchema = schemaValidator.validateSchema(output);
 	t.assert(isValidSchema);
@@ -104,6 +135,13 @@ test('Outputs /user & /user2 JSON schema, when provided one JSON payload.', asyn
 
 	t.assert(
 		valid,
+		validate.errors ? JSON.stringify(validate.errors, null, 2) : 'pass'
+	);
+
+	const valid2 = await validate(samplePayload2);
+
+	t.assert(
+		valid2,
 		validate.errors ? JSON.stringify(validate.errors, null, 2) : 'pass'
 	);
 });

@@ -69,11 +69,11 @@
   "giveNewContactsMvlAccess": true,
   "account": {
     "type": "Clinic",
-    "name": "Ames Animal Hospital",
+    "name": "Ames Hospital",
     "id": 100000,
     "plan": "PAID",
     "territory": "Eastern",
-    "address1": "525252 test main st",
+    "address1": "a",
     "address2": "Suite 300",
     "city": "Ankeny",
     "postalcode": "50021",
