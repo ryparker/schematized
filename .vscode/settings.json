@@ -4,5 +4,8 @@
   "xo.enable": true,
   "xo.format.enable": true,
   "editor.defaultFormatter": "samverschueren.linter-xo",
-  "cSpell.words": ["overriden"]
+  "cSpell.words": ["overriden"],
+  "[javascript]": {
+    "editor.defaultFormatter": "samverschueren.linter-xo"
+  }
 }

@@ -6,23 +6,23 @@
 ![Build-Test-Publish](https://github.com/ryparker/JSON-Schema-Builder/workflows/Build-Test-Publish/badge.svg)
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/xojs/xo)
 
-Turn JS objects into JSON schemas that continue to improve as you provide examples.
+Turn objects into JSON schemas! The more examples you provide, the better your schema will be.
 
 A Node port of the Python module Genson.
 
 ## :rocket: Quickstart
 
-1. Add dependency
+1. **Add dependency**
 
 ```shell
 yarn add schematized
 ```
 
-2. Basic usage
+2. **Basic usage** : [See output](#schema-from-the-single-example)
 
 ```ts
 import { SchemaBuilder } from 'schematized' // Typescript & ES6+
-const { default: SchemaBuilder } = require('schematized') // CommonJS
+const { SchemaBuilder } = require('schematized') // CommonJS
 
 const builder = new SchemaBuilder()
 
@@ -36,12 +36,11 @@ builder.addObject({
 const schema = builder.toSchema()
 ```
 
-3. Improve the schema
+3. **Improve the schema with examples** : [See output](#schema-from-the-two-examples)
 
 ```ts
 ...
 
-// Add more example objects
 builder.addObject({
   token: 'Bearer 6498d9afc96d1d8d881a2b7ded4f9290',
   role: [
@@ -50,15 +49,22 @@ builder.addObject({
     'Publisher'
   ]
 })
+```
 
-// Or combine data from another JSON Schema
+4. **Improve the schema with existing schemas** : [See output](#schema-from-the-two-examples-and-the-schema)
+
+```ts
+...
+
 builder.addSchema({
   title: '/user response',
   description: 'User data from server.'
 })
 ```
 
-**Schema from the single example:**
+---
+
+### Schema from the single example
 
 ```JSON
 {
@@ -86,7 +92,7 @@ builder.addSchema({
 }
 ```
 
-**Schema from the two examples:**
+### Schema from the two examples
 
 ```JSON
 {
@@ -114,7 +120,7 @@ builder.addSchema({
 }
 ```
 
-**Schema from the two examples and the schema**:
+### Schema from the two examples and the schema
 
 ```JSON
 {
