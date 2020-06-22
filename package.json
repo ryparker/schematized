@@ -66,13 +66,19 @@
     }
   },
   "keywords": [
-    "json schema",
     "json",
     "schema",
-    "builder",
+    "object",
+    "convert",
+    "generate",
+    "types",
+    "type",
     "genson",
-    "generator",
-    "trainer",
-    "node"
+    "produce",
+    "generic",
+    "validation",
+    "data",
+    "datatypes",
+    "build"
   ]
 }
