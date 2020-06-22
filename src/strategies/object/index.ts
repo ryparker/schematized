@@ -50,7 +50,7 @@ export class ObjectStrategy extends SchemaStrategy {
 		if (properties) {
 			for (const [key, value] of Object.entries(properties)) {
 				if (value) {
-					if (this.properties[key]) {
+					if (!(this.properties[key] instanceof SchemaNode)) {
 						this.properties[key] = new SchemaNode();
 					}
 

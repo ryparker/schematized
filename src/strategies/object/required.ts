@@ -22,7 +22,7 @@ export class Required {
 		if (schema.required) {
 			const required = new Set(schema.required);
 
-			if (_.isNil(this.required)) {
+			if (_.isNil(this.required) || this.required.size === 0) {
 				this.required = required;
 			} else {
 				this.required.add(required);
