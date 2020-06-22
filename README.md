@@ -8,7 +8,9 @@
 
 Turn objects into JSON schemas! The more examples you provide, the better your schema will be.
 
-A Node port of the Python module Genson.
+A Node port of the Python module [GenSON](https://github.com/wolverdude/GenSON) but with more inferred constraints.
+
+**Example use case:** Generate JSON schemas using your API tests, then use the schemas to validate. To keep up to date, Write a test that compares your current schema with the generated schema. Then when your API changes, just update the tests with the newly generated schemas and move on with your day.
 
 ---
 
@@ -17,8 +19,8 @@ A Node port of the Python module Genson.
     - [Schema from the single example](#schema-from-the-single-example)
     - [Schema from the two examples](#schema-from-the-two-examples)
     - [Schema from the two examples and the schema](#schema-from-the-two-examples-and-the-schema)
-  - [📖 API](#-api)
-  - [✅ Supported Schema Features](#-supported-schema-features)
+  - [?? API](#-api)
+  - [?? Supported Schema Features](#?-supported-schema-features)
     - [Types](#types)
     - [Typeless](#typeless)
     - [String](#string)
@@ -171,7 +173,7 @@ builder.addSchema({
 
 ---
 
-## 📖 API
+## ?? API
 
 | Method                | Definition                                      | Parameter         |
 | --------------------- | ----------------------------------------------- | ----------------- |
@@ -180,7 +182,7 @@ builder.addSchema({
 | `.toSchema()`         | Generate the schema.                            | None              |
 | `.toPrettySchema()`   | Generate the schema and pretty print.           | None              |
 
-## ✅ Supported Schema Features
+## ?? Supported Schema Features
 
 Visit the [official JSON Schema site](https://json-schema.org/understanding-json-schema/reference/index.html) for specification details.
 
