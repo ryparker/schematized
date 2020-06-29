@@ -18,8 +18,8 @@ A Node port of the Python module [GenSON](https://github.com/wolverdude/GenSON) 
     - [Schema from the single example](#schema-from-the-single-example)
     - [Schema from the two examples](#schema-from-the-two-examples)
     - [Schema from the two examples and the schema](#schema-from-the-two-examples-and-the-schema)
-  - [ðŸ“– API](#-api)
-  - [âœ… Supported Schema Features](#?-supported-schema-features)
+  - [ðŸ“– API](#ðÿ-api)
+  - [âœ… Supported Schema Features](#âœ-supported-schema-features)
     - [Types](#types)
     - [Typeless](#typeless)
     - [String](#string)
@@ -266,8 +266,8 @@ Visit the [official JSON Schema site](https://json-schema.org/understanding-json
 | propertyPatterns     | Yes         | Yes         |
 | additionalProperties | Yes         | Yes         |
 | required             | Yes         | Yes         |
-| maxProperties        | Not yet     | Not yet     |
-| minProperties        | Not yet     | Not yet     |
+| maxProperties        | Yes         | Yes         |
+| minProperties        | Yes         | Yes         |
 
 ### Array
 

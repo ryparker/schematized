@@ -1,4 +1,6 @@
 import {AdditionalProperties} from './additional-properties';
+import {MaxProperties} from './max-properties';
+import {MinProperties} from './min-properties';
 import {PatternProperties} from './pattern-properties';
 import {Required} from './required';
 import {SchemaNode} from '../../schema-node';
@@ -11,6 +13,8 @@ export class ObjectStrategy extends SchemaStrategy {
 	private readonly PatternPropertiesStrategy: PatternProperties;
 	private readonly requiredStrategy: Required;
 	private readonly additionalPropertiesStrategy: AdditionalProperties;
+	private readonly maxPropertiesStrategy: MaxProperties;
+	private readonly minPropertiesStrategy: MinProperties;
 
 	constructor(schemaNode) {
 		super(schemaNode);
@@ -19,6 +23,8 @@ export class ObjectStrategy extends SchemaStrategy {
 		this.PatternPropertiesStrategy = new PatternProperties();
 		this.requiredStrategy = new Required();
 		this.additionalPropertiesStrategy = new AdditionalProperties();
+		this.maxPropertiesStrategy = new MaxProperties();
+		this.minPropertiesStrategy = new MinProperties();
 	}
 
 	public matchObject(object: any) {
@@ -30,16 +36,22 @@ export class ObjectStrategy extends SchemaStrategy {
 	}
 
 	public addObject(object: Record<string, any>) {
+		this.PatternPropertiesStrategy.addObject(object);
+
 		for (const [key, value] of Object.entries(object)) {
-			if (!this.properties[key]) {
-				this.properties[key] = new SchemaNode();
+			if (this.PatternPropertiesStrategy.findPattern(key)) {
+				delete object[key];
+				continue;
 			}
+
+			if (!this.properties[key]) this.properties[key] = new SchemaNode();
 
 			this.properties[key].addObject(value);
 		}
 
-		this.PatternPropertiesStrategy.addObject(object);
 		this.requiredStrategy.addObject(object);
+		this.maxPropertiesStrategy.addObject(object);
+		this.minPropertiesStrategy.addObject(object);
 	}
 
 	public addSchema(schema: Record<string, any>) {
@@ -62,6 +74,8 @@ export class ObjectStrategy extends SchemaStrategy {
 		this.PatternPropertiesStrategy.addSchema(schema);
 		this.requiredStrategy.addSchema(schema);
 		this.additionalPropertiesStrategy.addSchema(schema);
+		this.maxPropertiesStrategy.addSchema(schema);
+		this.minPropertiesStrategy.addSchema(schema);
 	}
 
 	public toSchema() {
@@ -76,16 +90,22 @@ export class ObjectStrategy extends SchemaStrategy {
 		schema = {...schema, ...this.requiredStrategy.toSchema()};
 		schema = {...schema, ...this.additionalPropertiesStrategy.toSchema()};
 
+		if (!schema.patternProperties)
+			schema = {...schema, ...this.maxPropertiesStrategy.toSchema()};
+
+		if (!schema.patternProperties)
+			schema = {...schema, ...this.minPropertiesStrategy.toSchema()};
+
 		return schema;
 	}
 
-	private propertiesToSchema(properties: any) {
+	private propertiesToSchema(properties: Record<string, SchemaNode>) {
 		const schemaProperties = {};
 
 		for (const [key, value] of _.toPairs(properties)) {
-			schemaProperties[key] = (value as SchemaNode).toSchema();
+			schemaProperties[key] = value.toSchema();
 		}
 
-		return schemaProperties;
+		return _.isEmpty(schemaProperties) ? undefined : schemaProperties;
 	}
 }

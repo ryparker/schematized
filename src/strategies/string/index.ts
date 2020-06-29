@@ -6,12 +6,14 @@ import _ from 'lodash';
 
 export class StringStrategy extends TypedSchemaStrategy {
 	public type = 'string';
+	public disabled: string[];
 	public maxLengthStrategy: MaxLength;
 	public minLengthStrategy: MinLength;
 	public formatStrategy: Format;
 
 	constructor(schemaNode) {
 		super(schemaNode);
+		this.disabled = [];
 		this.maxLengthStrategy = new MaxLength();
 		this.minLengthStrategy = new MinLength();
 		this.formatStrategy = new Format();
@@ -23,13 +25,22 @@ export class StringStrategy extends TypedSchemaStrategy {
 
 	public addObject(string: string) {
 		super.addObject(string);
-		this.maxLengthStrategy.addObject(string);
-		this.minLengthStrategy.addObject(string);
-		this.formatStrategy.addObject(string);
+
+		if (!this.disabled.includes('maxLength'))
+			this.maxLengthStrategy.addObject(string);
+
+		if (!this.disabled.includes('minLength'))
+			this.minLengthStrategy.addObject(string);
+
+		if (!this.disabled.includes('format'))
+			this.formatStrategy.addObject(string);
 	}
 
 	public addSchema(schema: Record<string, unknown>) {
 		super.addSchema(schema);
+
+		if (schema.disabled) this.disabled.push(...(schema.disabled as string[]));
+
 		this.maxLengthStrategy.addSchema(schema);
 		this.minLengthStrategy.addSchema(schema);
 		this.formatStrategy.addSchema(schema);

@@ -43,6 +43,17 @@ export class PatternProperties {
 		};
 	}
 
+	public findPattern(prop: string) {
+		for (const pattern of Object.keys(this.patternProperties)) {
+			const re = new RegExp(pattern);
+			if (re.test(prop)) {
+				return pattern;
+			}
+		}
+
+		return null;
+	}
+
 	private propertiesToSchema(properties: any) {
 		const schemaProperties = {};
 
@@ -51,15 +62,5 @@ export class PatternProperties {
 		}
 
 		return schemaProperties;
-	}
-
-	private findPattern(prop: string) {
-		for (const pattern of Object.keys(this.patternProperties)) {
-			if (pattern.includes(prop)) {
-				return pattern;
-			}
-		}
-
-		return null;
 	}
 }
