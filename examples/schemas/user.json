@@ -176,7 +176,9 @@
         "territory",
         "type"
       ],
-      "additionalProperties": false
+      "additionalProperties": false,
+      "maxProperties": 11,
+      "minProperties": 11
     }
   },
   "required": [
@@ -204,5 +206,7 @@
     "username",
     "vetTechId"
   ],
-  "additionalProperties": false
+  "additionalProperties": false,
+  "maxProperties": 23,
+  "minProperties": 23
 }

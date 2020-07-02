@@ -1,8 +1,15 @@
 import AJV from 'ajv';
-import {SchemaBuilder} from '../src';
+import SchemaBuilder from '../src';
 import fs from 'fs';
 import path from 'path';
 import test from 'ava';
+
+async function saveExampleSchema(object: Record<string, any>, name: string) {
+	await fs.promises.writeFile(
+		path.resolve(__dirname, `../examples/schemas/${name}.json`),
+		JSON.stringify(object, null, 2)
+	);
+}
 
 test('Outputs profile JSON schema, when provided one JSON payload.', async (t) => {
 	const instance = new SchemaBuilder();
@@ -12,10 +19,7 @@ test('Outputs profile JSON schema, when provided one JSON payload.', async (t) =
 	instance.addObject(samplePayload);
 	const output = instance.toSchema();
 
-	await fs.promises.writeFile(
-		path.resolve(__dirname, '../examples/schemas/profile.json'),
-		JSON.stringify(output, null, 2)
-	);
+	await saveExampleSchema(output, 'profile');
 
 	const schemaValidator = new AJV();
 	const isValidSchema = schemaValidator.validateSchema(output);
@@ -37,10 +41,7 @@ test('Outputs /gettoken JSON schema, when provided one JSON payload.', async (t)
 	instance.addObject(samplePayload);
 	const output = instance.toSchema();
 
-	await fs.promises.writeFile(
-		path.resolve(__dirname, '../examples/schemas/auth.json'),
-		JSON.stringify(output, null, 2)
-	);
+	await saveExampleSchema(output, 'auth');
 
 	const schemaValidator = new AJV();
 	const isValidSchema = schemaValidator.validateSchema(output);
@@ -62,10 +63,7 @@ test('Outputs /documents(cvi) JSON schema, when provided one JSON payload.', asy
 	instance.addObject(samplePayload);
 	const output = instance.toSchema();
 
-	await fs.promises.writeFile(
-		path.resolve(__dirname, '../examples/schemas/document.json'),
-		JSON.stringify(output, null, 2)
-	);
+	await saveExampleSchema(output, 'document');
 
 	const schemaValidator = new AJV();
 	const isValidSchema = schemaValidator.validateSchema(output);
@@ -87,10 +85,7 @@ test('Outputs /user JSON schema, when provided one JSON payload.', async (t) => 
 	instance.addObject(samplePayload);
 	const output = instance.toSchema();
 
-	await fs.promises.writeFile(
-		path.resolve(__dirname, '../examples/schemas/user.json'),
-		JSON.stringify(output, null, 2)
-	);
+	await saveExampleSchema(output, 'user');
 
 	const schemaValidator = new AJV();
 	const isValidSchema = schemaValidator.validateSchema(output);
@@ -108,11 +103,9 @@ test('Outputs JSON schema, when provided two JSON payload and one schema.', asyn
 	const instance = new SchemaBuilder();
 
 	const samplePayload = require('../examples/user.json');
-
-	instance.addObject(samplePayload);
-
 	const samplePayload2 = require('../examples/user2.json');
 
+	instance.addObject(samplePayload);
 	instance.addObject(samplePayload2);
 	instance.addSchema({
 		title: '/user response',
@@ -121,10 +114,7 @@ test('Outputs JSON schema, when provided two JSON payload and one schema.', asyn
 
 	const output = instance.toSchema();
 
-	await fs.promises.writeFile(
-		path.resolve(__dirname, '../examples/schemas/user1&2.json'),
-		JSON.stringify(output, null, 2)
-	);
+	await saveExampleSchema(output, 'user1&2');
 
 	const schemaValidator = new AJV();
 	const isValidSchema = schemaValidator.validateSchema(output);

@@ -64,7 +64,9 @@
         "id",
         "name"
       ],
-      "additionalProperties": false
+      "additionalProperties": false,
+      "maxProperties": 2,
+      "minProperties": 2
     },
     "clinic_id": {
       "type": "number",
@@ -92,7 +94,9 @@
       "required": [
         "status"
       ],
-      "additionalProperties": false
+      "additionalProperties": false,
+      "maxProperties": 1,
+      "minProperties": 1
     },
     "brandInspectionDate": {
       "type": "null"
@@ -345,7 +349,9 @@
                 "type",
                 "version"
               ],
-              "additionalProperties": false
+              "additionalProperties": false,
+              "maxProperties": 15,
+              "minProperties": 15
             }
           },
           "vacs": {
@@ -373,7 +379,9 @@
           "vacs",
           "version"
         ],
-        "additionalProperties": false
+        "additionalProperties": false,
+        "maxProperties": 19,
+        "minProperties": 19
       }
     },
     "areaStatuses": {
@@ -455,7 +463,9 @@
         "type",
         "version"
       ],
-      "additionalProperties": false
+      "additionalProperties": false,
+      "maxProperties": 11,
+      "minProperties": 11
     },
     "carrierPremises": {
       "type": "object",
@@ -541,7 +551,9 @@
         "state",
         "version"
       ],
-      "additionalProperties": false
+      "additionalProperties": false,
+      "maxProperties": 14,
+      "minProperties": 14
     },
     "consignee": {
       "type": "object",
@@ -614,7 +626,9 @@
         "type",
         "version"
       ],
-      "additionalProperties": false
+      "additionalProperties": false,
+      "maxProperties": 11,
+      "minProperties": 11
     },
     "consigneePremises": {
       "type": "object",
@@ -700,7 +714,9 @@
         "state",
         "version"
       ],
-      "additionalProperties": false
+      "additionalProperties": false,
+      "maxProperties": 14,
+      "minProperties": 14
     },
     "consignor": {
       "type": "object",
@@ -771,7 +787,9 @@
         "type",
         "version"
       ],
-      "additionalProperties": false
+      "additionalProperties": false,
+      "maxProperties": 11,
+      "minProperties": 11
     },
     "consignorPremises": {
       "type": "object",
@@ -855,7 +873,9 @@
         "state",
         "version"
       ],
-      "additionalProperties": false
+      "additionalProperties": false,
+      "maxProperties": 14,
+      "minProperties": 14
     },
     "destination": {
       "type": "object",
@@ -924,7 +944,9 @@
         "type",
         "version"
       ],
-      "additionalProperties": false
+      "additionalProperties": false,
+      "maxProperties": 11,
+      "minProperties": 11
     },
     "destinationPremises": {
       "type": "object",
@@ -1010,7 +1032,9 @@
         "state",
         "version"
       ],
-      "additionalProperties": false
+      "additionalProperties": false,
+      "maxProperties": 14,
+      "minProperties": 14
     },
     "origin": {
       "type": "object",
@@ -1081,7 +1105,9 @@
         "type",
         "version"
       ],
-      "additionalProperties": false
+      "additionalProperties": false,
+      "maxProperties": 11,
+      "minProperties": 11
     },
     "originPremises": {
       "type": "object",
@@ -1165,7 +1191,9 @@
         "state",
         "version"
       ],
-      "additionalProperties": false
+      "additionalProperties": false,
+      "maxProperties": 14,
+      "minProperties": 14
     },
     "questions": {
       "type": "array"
@@ -1221,5 +1249,7 @@
     "version",
     "vet"
   ],
-  "additionalProperties": false
+  "additionalProperties": false,
+  "maxProperties": 42,
+  "minProperties": 42
 }

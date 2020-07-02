@@ -1,8 +1,8 @@
 {
   "$schema": "http://json.schemastore.org/tsconfig",
   "compilerOptions": {
-    "target": "ESNext",
-    "lib": ["ESNext"],
+    "target": "es2019",
+    "lib": ["es2019"],
     // "rootDir": "./src",
     "outDir": "dist",
     "module": "CommonJS",
@@ -16,7 +16,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
-    "typeRoots": ["node_modules/@types"],
     "types": ["node"],
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true

@@ -200,7 +200,9 @@
         "territory",
         "type"
       ],
-      "additionalProperties": false
+      "additionalProperties": false,
+      "maxProperties": 11,
+      "minProperties": 11
     },
     "missingNecesaryLicenseAgreement": {
       "type": "boolean"
@@ -242,5 +244,7 @@
     "userRole",
     "username"
   ],
-  "additionalProperties": false
+  "additionalProperties": false,
+  "maxProperties": 24,
+  "minProperties": 23
 }

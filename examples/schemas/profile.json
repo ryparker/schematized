@@ -49,7 +49,9 @@
         "firstName",
         "lastName"
       ],
-      "additionalProperties": false
+      "additionalProperties": false,
+      "maxProperties": 2,
+      "minProperties": 2
     }
   },
   "required": [
@@ -60,5 +62,7 @@
     "role",
     "username"
   ],
-  "additionalProperties": false
+  "additionalProperties": false,
+  "maxProperties": 6,
+  "minProperties": 6
 }

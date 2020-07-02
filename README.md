@@ -18,8 +18,8 @@ A Node port of the Python module [GenSON](https://github.com/wolverdude/GenSON) 
     - [Schema from the single example](#schema-from-the-single-example)
     - [Schema from the two examples](#schema-from-the-two-examples)
     - [Schema from the two examples and the schema](#schema-from-the-two-examples-and-the-schema)
-  - [:books: API](#ðÿ-api)
-  - [:dart: Supported Schema Features](#âœ-supported-schema-features)
+  - [:books: API](#-api)
+  - [:dart: Supported Schema Features](#-supported-schema-features)
     - [Types](#types)
     - [Typeless](#typeless)
     - [String](#string)
@@ -41,8 +41,8 @@ yarn add schematized
 2. **Basic usage** : [See output](#schema-from-the-single-example)
 
 ```ts
-import { SchemaBuilder } from 'schematized' // Typescript & ES6+
-const { SchemaBuilder } = require('schematized') // CommonJS
+import SchemaBuilder from 'schematized' // Typescript & ESM
+const { default: SchemaBuilder } = require('schematized') // CommonJS
 
 const builder = new SchemaBuilder()
 
@@ -77,8 +77,8 @@ builder.addObject({
 ...
 
 builder.addSchema({
-  title: '/user response',
-  description: 'User data from server.'
+  title: '/user server response',
+  description: '/user server response'
 })
 ```
 
@@ -88,19 +88,19 @@ builder.addSchema({
 
 ```JSON
 {
-  "$schema": "http://json-schema.org/schema#",
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "properties": {
     "token": {
       "type": "string",
-      "maxLength": 32,
-      "minLength": 32
+      "maxLength": 39,
+      "minLength": 39
     },
     "role": {
       "type": "array",
       "items": {
         "type": "string",
-        "maxLength": 5,
+        "maxLength": 9,
         "minLength": 5
       }
     }
@@ -108,7 +108,10 @@ builder.addSchema({
   "required": [
     "role",
     "token"
-  ]
+  ],
+  "additionalProperties": false,
+  "maxProperties": 2,
+  "minProperties": 2
 }
 ```
 
@@ -116,13 +119,13 @@ builder.addSchema({
 
 ```JSON
 {
-  "$schema": "http://json-schema.org/schema#",
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "properties": {
     "token": {
       "type": "string",
       "maxLength": 39,
-      "minLength": 32
+      "minLength": 39
     },
     "role": {
       "type": "array",
@@ -136,7 +139,10 @@ builder.addSchema({
   "required": [
     "role",
     "token"
-  ]
+  ],
+  "additionalProperties": false,
+  "maxProperties": 2,
+  "minProperties": 2
 }
 ```
 
@@ -144,15 +150,15 @@ builder.addSchema({
 
 ```JSON
 {
-  "$schema": "http://json-schema.org/schema#",
-  "title": "/user response",
-  "description": "User data from server.",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "/user server response",
+  "description": "User data.",
   "type": "object",
   "properties": {
     "token": {
       "type": "string",
       "maxLength": 39,
-      "minLength": 32
+      "minLength": 39
     },
     "role": {
       "type": "array",
@@ -166,7 +172,10 @@ builder.addSchema({
   "required": [
     "role",
     "token"
-  ]
+  ],
+  "additionalProperties": false,
+  "maxProperties": 2,
+  "minProperties": 2
 }
 ```
 

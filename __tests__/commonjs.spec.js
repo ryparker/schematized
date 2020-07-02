@@ -1,5 +1,5 @@
-const { SchemaBuilder } = require('../dist')
+const {default: SchemaBuilder} = require('../dist');
 
-const builder = new SchemaBuilder()
+const builder = new SchemaBuilder();
 
-console.log(builder)
+console.log(builder);

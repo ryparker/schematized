@@ -1,6 +1,6 @@
 import {SchemaNode} from './schema-node';
 
-export class SchemaBuilder {
+export default class SchemaBuilder {
 	private schemaUri: string;
 	private readonly rootNode: SchemaNode;
 
