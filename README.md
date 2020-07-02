@@ -14,7 +14,7 @@ A Node port of the Python module [GenSON](https://github.com/wolverdude/GenSON) 
 ---
 
 - [Schematized](#schematized)
-  - [:rocket: Quickstart](#-quickstart)
+  - [:rocket: Quick start](#-quick-start)
     - [Schema from the single example](#schema-from-the-single-example)
     - [Schema from the two examples](#schema-from-the-two-examples)
     - [Schema from the two examples and the schema](#schema-from-the-two-examples-and-the-schema)
@@ -30,7 +30,7 @@ A Node port of the Python module [GenSON](https://github.com/wolverdude/GenSON) 
 
 ---
 
-## :rocket: Quickstart
+## :rocket: Quick start
 
 1. **Add dependency**
 
@@ -93,14 +93,14 @@ builder.addSchema({
   "properties": {
     "token": {
       "type": "string",
-      "maxLength": 39,
-      "minLength": 39
+      "maxLength": 32,
+      "minLength": 32
     },
     "role": {
       "type": "array",
       "items": {
         "type": "string",
-        "maxLength": 9,
+        "maxLength": 5,
         "minLength": 5
       }
     }
@@ -125,7 +125,7 @@ builder.addSchema({
     "token": {
       "type": "string",
       "maxLength": 39,
-      "minLength": 39
+      "minLength": 32
     },
     "role": {
       "type": "array",
@@ -152,13 +152,13 @@ builder.addSchema({
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "/user server response",
-  "description": "User data.",
+  "description": "/user server response",
   "type": "object",
   "properties": {
     "token": {
       "type": "string",
       "maxLength": 39,
-      "minLength": 39
+      "minLength": 32
     },
     "role": {
       "type": "array",

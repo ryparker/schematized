@@ -7,7 +7,7 @@
     "token": {
       "type": "string",
       "maxLength": 39,
-      "minLength": 39
+      "minLength": 32
     },
     "role": {
       "type": "array",

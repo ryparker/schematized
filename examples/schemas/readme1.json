@@ -4,14 +4,14 @@
   "properties": {
     "token": {
       "type": "string",
-      "maxLength": 39,
-      "minLength": 39
+      "maxLength": 32,
+      "minLength": 32
     },
     "role": {
       "type": "array",
       "items": {
         "type": "string",
-        "maxLength": 9,
+        "maxLength": 5,
         "minLength": 5
       }
     }
