@@ -46,6 +46,9 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
+  "engines": {
+    "node": ">= 12.x"
+  },
   "dependencies": {
     "lodash": "^4.17.15"
   },
