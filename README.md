@@ -18,8 +18,8 @@ A Node port of the Python module [GenSON](https://github.com/wolverdude/GenSON) 
     - [Schema from the single example](#schema-from-the-single-example)
     - [Schema from the two examples](#schema-from-the-two-examples)
     - [Schema from the two examples and the schema](#schema-from-the-two-examples-and-the-schema)
-  - [📖 API](#��-api)
-  - [✅ Supported Schema Features](#�-supported-schema-features)
+  - [:books: API](#ðÿ-api)
+  - [:dart: Supported Schema Features](#âœ-supported-schema-features)
     - [Types](#types)
     - [Typeless](#typeless)
     - [String](#string)
@@ -172,7 +172,7 @@ builder.addSchema({
 
 ---
 
-## 📖 API
+## :books: API
 
 | Method                | Definition                                      | Parameter         |
 | --------------------- | ----------------------------------------------- | ----------------- |
@@ -181,7 +181,7 @@ builder.addSchema({
 | `.toSchema()`         | Generate the schema.                            | None              |
 | `.toPrettySchema()`   | Generate the schema and pretty print.           | None              |
 
-## ✅ Supported Schema Features
+## :dart: Supported Schema Features
 
 Visit the [official JSON Schema site](https://json-schema.org/understanding-json-schema/reference/index.html) for specification details.
 
