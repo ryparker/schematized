@@ -50,14 +50,14 @@
     "node": ">= 12.x"
   },
   "dependencies": {
-    "lodash": "^4.17.15"
+    "lodash": "^4.17.19"
   },
   "devDependencies": {
     "@ava/typescript": "^1.1.1",
     "@types/lodash": "^4.14.157",
-    "@types/node": "^14.0.14",
-    "ajv": "^6.12.2",
-    "ava": "^3.9.0",
+    "@types/node": "^14.0.22",
+    "ajv": "^6.12.3",
+    "ava": "^3.10.1",
     "commitizen": "^4.1.2",
     "cz-conventional-changelog": "3.2.0",
     "eslint-plugin-prettier": "^3.1.4",
@@ -67,7 +67,7 @@
     "semantic-release": "^17.1.1",
     "ts-node": "^8.10.2",
     "typescript": "^3.9.6",
-    "xo": "^0.32.0"
+    "xo": "^0.32.1"
   },
   "keywords": [
     "json",

@@ -43,9 +43,7 @@ export class ArrayStrategy extends SchemaStrategy {
 			const items = this.items.toSchema();
 
 			if (items?.anyOf && Array.isArray(items.anyOf)) {
-				console.log(items.anyOf);
 				items.anyOf = _.uniqWith(items.anyOf, _.isEqual);
-				console.log(items.anyOf);
 			}
 
 			schema.items = items;
