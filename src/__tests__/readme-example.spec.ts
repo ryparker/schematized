@@ -1,16 +1,19 @@
 import AJV from 'ajv';
-import SchemaBuilder from '../dist';
+import SchemaBuilder from '../../dist';
 import fs from 'fs';
 import path from 'path';
 import test from 'ava';
 
 function loadExampleObject(name: string) {
-	return require(path.resolve(__dirname, `../examples/objects/${name}.json`));
+	return require(path.resolve(
+		__dirname,
+		`../../examples/objects/${name}.json`
+	));
 }
 
 async function saveExampleSchema(object: Record<string, any>, name: string) {
 	await fs.promises.writeFile(
-		path.resolve(__dirname, `../examples/schemas/${name}.json`),
+		path.resolve(__dirname, `../../examples/schemas/${name}.json`),
 		JSON.stringify(object, null, 2)
 	);
 }

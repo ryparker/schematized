@@ -22,7 +22,7 @@
   },
   "compileOnSave": true,
   "include": ["src/**/*.ts"],
-  "exclude": ["node_modules"],
+  "exclude": ["**/__tests__/**"],
   "typedocOptions": {
     "inputFiles": ["./src"],
     "exclude": "**/*.spec.ts",
