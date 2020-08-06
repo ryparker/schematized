@@ -19,7 +19,7 @@ export class MaxProperties {
 	}
 
 	public toSchema() {
-		if (this.maxProperties === 0) return undefined;
+		if (!this.maxProperties) return undefined;
 
 		return {maxProperties: Math.round(this.maxProperties)};
 	}

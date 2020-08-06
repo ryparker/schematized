@@ -19,7 +19,7 @@ export class MinProperties {
 	}
 
 	public toSchema() {
-		if (this.minProperties === 0) return undefined;
+		if (!this.minProperties) return undefined;
 
 		return {minProperties: Math.round(this.minProperties)};
 	}
