@@ -48,9 +48,12 @@ export class StringStrategy extends TypedSchemaStrategy {
 
 	public toSchema() {
 		let schema = super.toSchema();
-		schema = {...schema, ...this.maxLengthStrategy.toSchema()};
-		schema = {...schema, ...this.minLengthStrategy.toSchema()};
-		schema = {...schema, ...this.formatStrategy.toSchema()};
+		schema = {
+			...schema,
+			...this.maxLengthStrategy.toSchema(),
+			...this.minLengthStrategy.toSchema(),
+			...this.formatStrategy.toSchema()
+		};
 
 		return schema;
 	}

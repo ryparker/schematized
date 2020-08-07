@@ -9,7 +9,8 @@ import _ from 'lodash';
 
 export class ObjectStrategy extends SchemaStrategy {
 	public properties: Record<string, SchemaNode>;
-	public keywords = new Set(['type', 'properties']);
+	public disabled: string[];
+	public readonly keywords = new Set(['type', 'properties']);
 	private readonly PatternPropertiesStrategy: PatternProperties;
 	private readonly requiredStrategy: Required;
 	private readonly additionalPropertiesStrategy: AdditionalProperties;
@@ -19,6 +20,7 @@ export class ObjectStrategy extends SchemaStrategy {
 	constructor(schemaNode) {
 		super(schemaNode);
 
+		this.disabled = [];
 		this.properties = {};
 		this.PatternPropertiesStrategy = new PatternProperties();
 		this.requiredStrategy = new Required();
@@ -50,14 +52,20 @@ export class ObjectStrategy extends SchemaStrategy {
 		}
 
 		this.requiredStrategy.addObject(object);
-		this.maxPropertiesStrategy.addObject(object);
-		this.minPropertiesStrategy.addObject(object);
+
+		if (!this.disabled.includes('maxProperties'))
+			this.maxPropertiesStrategy.addObject(object);
+
+		if (!this.disabled.includes('minProperties'))
+			this.minPropertiesStrategy.addObject(object);
 	}
 
 	public addSchema(schema: Record<string, any>) {
 		super.addSchema(schema);
 
 		const {properties} = schema;
+
+		if (schema.disabled) this.disabled.push(...(schema.disabled as string[]));
 
 		if (properties) {
 			for (const [key, value] of Object.entries(properties)) {
@@ -86,15 +94,20 @@ export class ObjectStrategy extends SchemaStrategy {
 			schema.properties = this.propertiesToSchema(this.properties);
 		}
 
-		schema = {...schema, ...this.PatternPropertiesStrategy.toSchema()};
-		schema = {...schema, ...this.requiredStrategy.toSchema()};
-		schema = {...schema, ...this.additionalPropertiesStrategy.toSchema()};
+		schema = {
+			...schema,
+			...this.PatternPropertiesStrategy.toSchema(),
+			...this.requiredStrategy.toSchema(),
+			...this.additionalPropertiesStrategy.toSchema()
+		};
 
-		if (!schema.patternProperties)
-			schema = {...schema, ...this.maxPropertiesStrategy.toSchema()};
-
-		if (!schema.patternProperties)
-			schema = {...schema, ...this.minPropertiesStrategy.toSchema()};
+		if (!schema.patternProperties) {
+			schema = {
+				...schema,
+				...this.maxPropertiesStrategy.toSchema(),
+				...this.minPropertiesStrategy.toSchema()
+			};
+		}
 
 		return schema;
 	}

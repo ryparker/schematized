@@ -32,8 +32,12 @@ export class NumberStrategy extends TypedSchemaStrategy {
 
 	public toSchema() {
 		let schema = super.toSchema();
-		schema = {...schema, ...this.maximumStrategy.toSchema()};
-		schema = {...schema, ...this.minimumStrategy.toSchema()};
+		schema = {
+			...schema,
+			...this.maximumStrategy.toSchema(),
+			...this.minimumStrategy.toSchema()
+		};
+
 		return schema;
 	}
 }
