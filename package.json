@@ -83,7 +83,7 @@
     "ava": "^3.11.1",
     "commitizen": "^4.1.2",
     "cz-conventional-changelog": "3.2.0",
-    "eslint-config-xo-typescript": "^0.31.0",
+    "eslint-config-xo-typescript": "^0.32.0",
     "eslint-plugin-prettier": "^3.1.4",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
