@@ -9,14 +9,14 @@ export class Maximum {
 	}
 
 	public addSchema(schema: Record<string, any>) {
-		if (_.isNil(this.max)) {
-			this.max = _.get(schema, 'maximum');
-		} else if (schema.maximum) {
+		if (schema.maximum) {
 			this.max = Math.max(this.max, schema.maximum);
 		}
 	}
 
 	public toSchema() {
+		if (!this.max) return undefined;
+
 		return {maximum: this.max};
 	}
 }

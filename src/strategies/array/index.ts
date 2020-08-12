@@ -12,7 +12,7 @@ export class ArrayStrategy extends SchemaStrategy {
 	}
 
 	public matchObject(object: any) {
-		return _.isArray(object);
+		return Array.isArray(object);
 	}
 
 	public matchSchema(schema: any) {
@@ -30,6 +30,7 @@ export class ArrayStrategy extends SchemaStrategy {
 
 	public addSchema(schema: any) {
 		super.addSchema(schema);
+
 		if (schema.items) {
 			this.items.addSchema(schema.items);
 		}
@@ -39,7 +40,10 @@ export class ArrayStrategy extends SchemaStrategy {
 		const schema = super.toSchema();
 		schema.type = 'array';
 
-		if (this.items && typeof this.items.toSchema === 'function') {
+		if (
+			Array.isArray(this.items?.activeStrategies) &&
+			this.items.activeStrategies.length > 0
+		) {
 			const items = this.items.toSchema();
 
 			if (items?.anyOf && Array.isArray(items.anyOf)) {

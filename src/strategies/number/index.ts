@@ -5,11 +5,13 @@ import _ from 'lodash';
 
 export class NumberStrategy extends TypedSchemaStrategy {
 	public type = 'number';
+	public disabled: string[];
 	public maximumStrategy: Maximum;
 	public minimumStrategy: Minimum;
 
 	constructor(schemaNode) {
 		super(schemaNode);
+		this.disabled = [];
 		this.maximumStrategy = new Maximum();
 		this.minimumStrategy = new Minimum();
 	}
@@ -20,12 +22,21 @@ export class NumberStrategy extends TypedSchemaStrategy {
 
 	public addObject(number: number) {
 		super.addObject(number);
-		this.maximumStrategy.addObject(number);
-		this.minimumStrategy.addObject(number);
+
+		if (!this.disabled.includes('maximum'))
+			this.maximumStrategy.addObject(number);
+
+		if (!this.disabled.includes('minimum'))
+			this.minimumStrategy.addObject(number);
 	}
 
 	public addSchema(schema: Record<string, unknown>) {
 		super.addSchema(schema);
+
+		if (schema.disabled) {
+			this.disabled.push(...(schema.disabled as string[]));
+		}
+
 		this.maximumStrategy.addSchema(schema);
 		this.minimumStrategy.addSchema(schema);
 	}

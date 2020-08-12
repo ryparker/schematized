@@ -63,12 +63,12 @@ export class ObjectStrategy extends SchemaStrategy {
 	public addSchema(schema: Record<string, any>) {
 		super.addSchema(schema);
 
-		const {properties} = schema;
+		if (schema.disabled) {
+			this.disabled.push(...(schema.disabled as string[]));
+		}
 
-		if (schema.disabled) this.disabled.push(...(schema.disabled as string[]));
-
-		if (properties) {
-			this.addSchemaProperties(properties);
+		if (schema.properties) {
+			this.addSchemaProperties(schema.properties);
 		}
 
 		this.PatternPropertiesStrategy.addSchema(schema);

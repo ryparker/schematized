@@ -9,14 +9,14 @@ export class Minimum {
 	}
 
 	public addSchema(schema: Record<string, any>) {
-		if (_.isNil(this.min)) {
-			this.min = _.get(schema, 'minimum');
-		} else if (schema.minimum) {
+		if (schema.minimum) {
 			this.min = Math.min(this.min, schema.minimum);
 		}
 	}
 
 	public toSchema() {
+		if (!this.min) return undefined;
+
 		return {minimum: this.min};
 	}
 }

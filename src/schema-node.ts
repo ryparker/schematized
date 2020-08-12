@@ -18,6 +18,7 @@ export class SchemaNode {
 		for (const subSchema of this.getSubSchemas(schema)) {
 			// Delegate to SchemaType object
 			const activeStrategy = this.getStrategyForSchema(subSchema);
+
 			activeStrategy.addSchema(subSchema);
 		}
 
@@ -121,16 +122,15 @@ export class SchemaNode {
 
 		// No match found, if typeless add to first strategy
 		const typelessInstance = new TypelessStrategy(schemaNode);
+
 		if (kind === 'schema' && typelessInstance.matchSchema(schemaOrObject)) {
 			if (this.activeStrategies.length === 0) {
 				this.activeStrategies.push(typelessInstance);
 			}
 
-			const activeStrategy = this.activeStrategies[0];
-			return activeStrategy;
+			return this.activeStrategies[0];
 		}
 
-		// If no match found, raise an error
 		throw new Error(
 			`Could not find matching schema type for ${kind}: ${JSON.stringify(
 				schemaOrObject,
@@ -143,8 +143,9 @@ export class SchemaNode {
 	private getSubSchemas(schema: Record<string, any>): any {
 		if (schema.anyOf) {
 			const subSchemas = new Set();
-			for (const anyof of schema.anyOf) {
-				for (const subSchema of this.getSubSchemas(anyof)) {
+
+			for (const anyOf of schema.anyOf) {
+				for (const subSchema of this.getSubSchemas(anyOf)) {
 					subSchemas.add(subSchema);
 				}
 			}
@@ -152,16 +153,8 @@ export class SchemaNode {
 			return [...subSchemas];
 		}
 
-		if (_.isArray(_.get(schema, 'type'))) {
-			const otherKeys = {...schema};
-			delete otherKeys.type;
-
-			const types = [];
-			for (const t of schema.type) {
-				types.push({type: t, ...otherKeys});
-			}
-
-			return types;
+		if (schema.type && Array.isArray(schema.type)) {
+			return schema.type.map((type) => ({...schema, type}));
 		}
 
 		return [schema];
