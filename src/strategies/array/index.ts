@@ -16,9 +16,9 @@ export class ArrayStrategy extends SchemaStrategy {
 	}
 
 	public matchSchema(schema: any) {
-		return (
+		return Boolean(
 			_.get(schema, 'type') === 'array' &&
-			_.isPlainObject(_.get(schema, 'items', {}))
+				_.isPlainObject(_.get(schema, 'items', {}))
 		);
 	}
 
@@ -39,7 +39,7 @@ export class ArrayStrategy extends SchemaStrategy {
 		const schema = super.toSchema();
 		schema.type = 'array';
 
-		if (this.items) {
+		if (this.items && typeof this.items.toSchema === 'function') {
 			const items = this.items.toSchema();
 
 			if (items?.anyOf && Array.isArray(items.anyOf)) {

@@ -108,6 +108,10 @@ export class ObjectStrategy extends SchemaStrategy {
 		const schemaProperties = {};
 
 		for (const [key, value] of _.toPairs(properties)) {
+			if (typeof value.toSchema !== 'function') {
+				continue;
+			}
+
 			schemaProperties[key] = value.toSchema();
 		}
 
