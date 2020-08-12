@@ -1,3 +1,10 @@
+## [1.8.3](https://github.com/ryparker/schematized/compare/v1.8.2...v1.8.3) (2020-08-12)
+
+
+### Bug Fixes
+
+* **strategies/*:** null strategy values will be ignored ([dd3d6d8](https://github.com/ryparker/schematized/commit/dd3d6d8a42fcd852aab30a4f6be921fc4173d578))
+
 ## [1.8.2](https://github.com/ryparker/schematized/compare/v1.8.1...v1.8.2) (2020-08-12)
 
 

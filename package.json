@@ -1,7 +1,7 @@
 {
   "name": "schematized",
   "description": "Turn objects into JSON schemas! The more examples you provide, the better your schema will be.",
-  "version": "1.8.2",
+  "version": "1.8.3",
   "files": [
     "dist"
   ],
