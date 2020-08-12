@@ -1,3 +1,10 @@
+## [1.8.2](https://github.com/ryparker/schematized/compare/v1.8.1...v1.8.2) (2020-08-12)
+
+
+### Bug Fixes
+
+* **array and string strategies:** fix for empty arrays being schematized as "items:undefined" ([4233772](https://github.com/ryparker/schematized/commit/423377238004ca764bc8b83d17e500948561c17c))
+
 ## [1.8.1](https://github.com/ryparker/schematized/compare/v1.8.0...v1.8.1) (2020-08-12)
 
 
