@@ -68,15 +68,7 @@ export class ObjectStrategy extends SchemaStrategy {
 		if (schema.disabled) this.disabled.push(...(schema.disabled as string[]));
 
 		if (properties) {
-			for (const [key, value] of Object.entries(properties)) {
-				if (value) {
-					if (!(this.properties[key] instanceof SchemaNode)) {
-						this.properties[key] = new SchemaNode();
-					}
-
-					this.properties[key].addSchema(value);
-				}
-			}
+			this.addSchemaProperties(properties);
 		}
 
 		this.PatternPropertiesStrategy.addSchema(schema);
@@ -120,5 +112,19 @@ export class ObjectStrategy extends SchemaStrategy {
 		}
 
 		return _.isEmpty(schemaProperties) ? undefined : schemaProperties;
+	}
+
+	private addSchemaProperties(properties: Record<string, SchemaNode>) {
+		for (const [key, value] of Object.entries(properties)) {
+			if (!value) {
+				continue;
+			}
+
+			if (!(this.properties[key] instanceof SchemaNode)) {
+				this.properties[key] = new SchemaNode();
+			}
+
+			this.properties[key].addSchema(value);
+		}
 	}
 }

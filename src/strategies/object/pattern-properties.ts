@@ -54,6 +54,13 @@ export class PatternProperties {
 		return null;
 	}
 
+	public filterProperties(properties: Record<string, any>) {
+		const patterns = Object.keys(this.patternProperties);
+		return properties.filter((property) =>
+			patterns.find((pattern) => new RegExp(pattern).test(property))
+		);
+	}
+
 	private propertiesToSchema(properties: any) {
 		const schemaProperties = {};
 
