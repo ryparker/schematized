@@ -2,21 +2,32 @@ import _ from 'lodash';
 
 export class Maximum {
 	public keywords = new Set(['maximum']);
-	public max: number | null = null;
+	public maximum: number | null = null;
 
 	public addObject(number: number) {
-		this.max = _.isNil(this.max) ? number : Math.max(this.max, number);
+		this.maximum = _.isNil(this.maximum)
+			? number
+			: Math.max(this.maximum, number);
 	}
 
 	public addSchema(schema: Record<string, any>) {
-		if (schema.maximum) {
-			this.max = Math.max(this.max, schema.maximum);
+		if (_.isNil(schema.maximum)) {
+			return;
 		}
+
+		if (_.isNil(this.maximum)) {
+			this.maximum = schema.maximum;
+			return;
+		}
+
+		this.maximum = Math.max(this.maximum, schema.maximum);
 	}
 
 	public toSchema() {
-		if (!this.max) return undefined;
+		if (!_.isNumber(this.maximum) || this.maximum === 0) {
+			return {};
+		}
 
-		return {maximum: this.max};
+		return {maximum: this.maximum};
 	}
 }

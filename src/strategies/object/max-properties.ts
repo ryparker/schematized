@@ -11,15 +11,22 @@ export class MaxProperties {
 	}
 
 	public addSchema(schema: Record<string, any>) {
-		if (_.isNil(this.maxProperties)) {
-			this.maxProperties = _.get(schema, 'maxProperties');
-		} else if (schema.maxProperties) {
-			this.maxProperties = Math.max(this.maxProperties, schema.maxProperties);
+		if (_.isNil(schema.maxProperties)) {
+			return;
 		}
+
+		if (_.isNil(this.maxProperties)) {
+			this.maxProperties = schema.maxProperties;
+			return;
+		}
+
+		this.maxProperties = Math.max(this.maxProperties, schema.maxProperties);
 	}
 
 	public toSchema() {
-		if (!this.maxProperties) return undefined;
+		if (!_.isNumber(this.maxProperties) || this.maxProperties === 0) {
+			return {};
+		}
 
 		return {maxProperties: Math.round(this.maxProperties)};
 	}

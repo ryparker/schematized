@@ -11,15 +11,22 @@ export class MinProperties {
 	}
 
 	public addSchema(schema: Record<string, any>) {
-		if (_.isNil(this.minProperties)) {
-			this.minProperties = _.get(schema, 'minProperties');
-		} else if (schema.minProperties) {
-			this.minProperties = Math.min(this.minProperties, schema.minProperties);
+		if (_.isNil(schema.minProperties)) {
+			return;
 		}
+
+		if (_.isNil(this.minProperties)) {
+			this.minProperties = schema.minProperties;
+			return;
+		}
+
+		this.minProperties = Math.min(this.minProperties, schema.minProperties);
 	}
 
 	public toSchema() {
-		if (!this.minProperties) return undefined;
+		if (!_.isNumber(this.minProperties)) {
+			return {};
+		}
 
 		return {minProperties: Math.round(this.minProperties)};
 	}

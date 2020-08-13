@@ -8,9 +8,7 @@
       "minimum": 123
     },
     "version": {
-      "type": "number",
-      "maximum": 0,
-      "minimum": 0
+      "type": "number"
     },
     "type": {
       "type": "string",

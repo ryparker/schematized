@@ -11,13 +11,22 @@ export class MinLength {
 	}
 
 	public addSchema(schema: Record<string, any>) {
-		if (schema.minLength) {
-			this.minLength = Math.min(this.minLength, schema.minLength);
+		if (_.isNil(schema.minLength)) {
+			return;
 		}
+
+		if (_.isNil(this.minLength)) {
+			this.minLength = schema.minLength;
+			return;
+		}
+
+		this.minLength = Math.min(this.minLength, schema.minLength);
 	}
 
 	public toSchema() {
-		if (!this.minLength) return undefined;
+		if (!_.isNumber(this.minLength)) {
+			return {};
+		}
 
 		return {minLength: Math.round(this.minLength)};
 	}

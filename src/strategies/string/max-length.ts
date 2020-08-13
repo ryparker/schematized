@@ -11,13 +11,22 @@ export class MaxLength {
 	}
 
 	public addSchema(schema: Record<string, any>) {
-		if (schema.maxLength) {
-			this.maxLength = Math.max(this.maxLength, schema.maxLength);
+		if (_.isNil(schema.maxLength)) {
+			return;
 		}
+
+		if (_.isNil(this.maxLength)) {
+			this.maxLength = schema.maxLength;
+			return;
+		}
+
+		this.maxLength = Math.max(this.maxLength, schema.maxLength);
 	}
 
 	public toSchema() {
-		if (!this.maxLength) return undefined;
+		if (!_.isNumber(this.maxLength) || this.maxLength === 0) {
+			return {};
+		}
 
 		return {maxLength: Math.round(this.maxLength)};
 	}

@@ -2,21 +2,32 @@ import _ from 'lodash';
 
 export class Minimum {
 	public keywords = new Set(['minimum']);
-	public min: number | null = null;
+	public minimum: number | null = null;
 
 	public addObject(number: number) {
-		this.min = _.isNil(this.min) ? number : Math.min(this.min, number);
+		this.minimum = _.isNil(this.minimum)
+			? number
+			: Math.min(this.minimum, number);
 	}
 
 	public addSchema(schema: Record<string, any>) {
-		if (schema.minimum) {
-			this.min = Math.min(this.min, schema.minimum);
+		if (_.isNil(schema.minimum)) {
+			return;
 		}
+
+		if (_.isNil(this.minimum)) {
+			this.minimum = schema.minimum;
+			return;
+		}
+
+		this.minimum = Math.min(this.minimum, schema.minimum);
 	}
 
 	public toSchema() {
-		if (!this.min) return undefined;
+		if (!_.isNumber(this.minimum)) {
+			return {};
+		}
 
-		return {minimum: this.min};
+		return {minimum: this.minimum};
 	}
 }
