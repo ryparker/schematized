@@ -8,7 +8,8 @@
       "minimum": 123
     },
     "version": {
-      "type": "number"
+      "type": "number",
+      "minimum": 0
     },
     "type": {
       "type": "string",

@@ -1,3 +1,10 @@
+## [1.8.4](https://github.com/ryparker/schematized/compare/v1.8.3...v1.8.4) (2020-08-13)
+
+
+### Bug Fixes
+
+* **objects, patternproperties:** objects with only patternProps will no longer have undefined props ([71d0e5d](https://github.com/ryparker/schematized/commit/71d0e5d8f099dcdfeed00ea44eff592f52ac6b82))
+
 ## [1.8.3](https://github.com/ryparker/schematized/compare/v1.8.2...v1.8.3) (2020-08-12)
 
 
