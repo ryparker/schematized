@@ -40,18 +40,19 @@ export class ObjectStrategy extends SchemaStrategy {
 	public addObject(object: Record<string, any>) {
 		this.PatternPropertiesStrategy.addObject(object);
 
-		for (const [key, value] of Object.entries(object)) {
-			if (this.PatternPropertiesStrategy.findPattern(key)) {
-				delete object[key];
-				continue;
-			}
+		const objectWithoutPatterns: Record<string, any> = _.omit(
+			object,
+			this.PatternPropertiesStrategy.matchingPropertyKeys
+		);
 
+		for (const [key, value] of Object.entries(objectWithoutPatterns)) {
 			if (!this.properties[key]) this.properties[key] = new SchemaNode();
 
 			this.properties[key].addObject(value);
 		}
 
-		this.requiredStrategy.addObject(object);
+		if (!this.disabled.includes('required'))
+			this.requiredStrategy.addObject(object);
 
 		if (!this.disabled.includes('maxProperties'))
 			this.maxPropertiesStrategy.addObject(object);
@@ -83,7 +84,11 @@ export class ObjectStrategy extends SchemaStrategy {
 		schema.type = 'object';
 
 		if (this.properties) {
-			schema.properties = this.propertiesToSchema(this.properties);
+			const schemaProperties = this.propertiesToSchema(this.properties);
+
+			if (!_.isEmpty(schemaProperties)) {
+				schema.properties = schemaProperties;
+			}
 		}
 
 		schema = {
@@ -108,14 +113,16 @@ export class ObjectStrategy extends SchemaStrategy {
 		const schemaProperties = {};
 
 		for (const [key, value] of _.toPairs(properties)) {
-			if (typeof value.toSchema !== 'function') {
+			const schema = value.toSchema();
+
+			if (!schema) {
 				continue;
 			}
 
-			schemaProperties[key] = value.toSchema();
+			schemaProperties[key] = schema;
 		}
 
-		return _.isEmpty(schemaProperties) ? undefined : schemaProperties;
+		return schemaProperties;
 	}
 
 	private addSchemaProperties(properties: Record<string, SchemaNode>) {

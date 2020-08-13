@@ -3,12 +3,8 @@ import {BASIC_SCHEMA_STRATEGIES, TypelessStrategy} from './strategies';
 import _ from 'lodash';
 
 export class SchemaNode {
-	public activeStrategies: any;
+	public activeStrategies = [];
 	public strategies = BASIC_SCHEMA_STRATEGIES;
-
-	constructor() {
-		this.activeStrategies = [];
-	}
 
 	public addSchema(schema: Record<string, any>) {
 		if (schema instanceof SchemaNode) {
