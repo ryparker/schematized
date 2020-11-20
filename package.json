@@ -96,6 +96,7 @@
     "ajv": "^6.12.6",
     "ava": "^3.13.0",
     "commitizen": "^4.2.2",
+    "conventional-changelog-conventionalcommits": "^4.5.0",
     "cz-conventional-changelog": "3.3.0",
     "eslint-config-xo-typescript": "^0.36.0",
     "eslint-plugin-prettier": "^3.1.4",
