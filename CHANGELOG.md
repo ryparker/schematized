@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.8.8](https://github.com/ryparker/schematized/compare/v1.8.7...v1.8.8) (2020-11-20)
+
+
+### Bug Fixes
+
+* **package.json:** resolved to "mem": "^4.0", ([4be8699](https://github.com/ryparker/schematized/commit/4be8699f8193836b686222c67cea7fd6688aa551))
+* **yarn.lock:** updated yarn lock ([d6e45c0](https://github.com/ryparker/schematized/commit/d6e45c06d5040084700c62a5c1f1d3b2c55ef330))
+
 ## [1.8.7](https://github.com/ryparker/schematized/compare/v1.8.6...v1.8.7) (2020-11-20)
 
 
