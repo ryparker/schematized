@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.7](https://github.com/ryparker/schematized/compare/v1.8.6...v1.8.7) (2020-11-20)
+
+
+### Bug Fixes
+
+* **package.json:** upgraded yarn deps ([520d124](https://github.com/ryparker/schematized/commit/520d124b7f0d94da3bc5cea7278625b2b1a35f60))
+
 ## [1.8.6](https://github.com/ryparker/schematized/compare/v1.8.5...v1.8.6) (2020-11-20)
 
 
