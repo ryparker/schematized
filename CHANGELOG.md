@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.8.6](https://github.com/ryparker/schematized/compare/v1.8.5...v1.8.6) (2020-11-20)
+
+
+### Bug Fixes
+
+* **commitizen:** added commitizen config ([543f61b](https://github.com/ryparker/schematized/commit/543f61b786c032be68ef10541b33dbe69c50757e))
+* **package.json:** added conventional-changelog-conventionalcommits ([bbb161e](https://github.com/ryparker/schematized/commit/bbb161edc79bbd00f1a1b21912334e21ea01f62c))
+* **package.json:** upgraded deps ([f5dd8c0](https://github.com/ryparker/schematized/commit/f5dd8c0deffb4cc1b2441af92d192f29647c036f))
+* **package.json, .github/*:** fixed semantic-release config for main branch ([5cb9554](https://github.com/ryparker/schematized/commit/5cb9554c1f7d1bbe4e5464e0c8eed8c901e34dcc))
+* **schema-node.ts:** fix XO linter errors ([00e876b](https://github.com/ryparker/schematized/commit/00e876b0b041ed029feb0e7c8d34a780f9c29a96))
+
 ## [1.8.5](https://github.com/ryparker/schematized/compare/v1.8.4...v1.8.5) (2020-08-13)
 
 
@@ -158,6 +169,3 @@
 ### Features
 
 * **ci:** setup CI process that uses semantic-release and commitizen to auto publish the npm package ([bbe72c0](https://github.com/ryparker/schematized/commit/bbe72c0af5b95cb23675cac51e9d0b60cddd3941))
-
-
-
