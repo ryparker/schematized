@@ -1,3 +1,10 @@
+## [1.8.5](https://github.com/ryparker/schematized/compare/v1.8.4...v1.8.5) (2020-08-13)
+
+
+### Bug Fixes
+
+* **max/min limits:** min/max were inaccurate if unset or 0 ([caa0fe6](https://github.com/ryparker/schematized/commit/caa0fe6d84f3e19cb248b8cc39fa612ed9ab4975))
+
 ## [1.8.4](https://github.com/ryparker/schematized/compare/v1.8.3...v1.8.4) (2020-08-13)
 
 
