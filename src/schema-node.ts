@@ -44,13 +44,8 @@ export class SchemaNode {
 		}
 
 		if (types.size > 0) {
-			let schemaType;
-
-			if (types.size === 1) {
-				schemaType = _.last([...types]);
-			} else {
-				schemaType = _.orderBy([...types]);
-			}
+			const schemaType =
+				types.size === 1 ? _.last([...types]) : _.orderBy([...types]);
 
 			generatedSchemas = [{type: schemaType}, ...generatedSchemas];
 		}
