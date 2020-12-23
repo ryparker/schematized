@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.9](https://github.com/ryparker/schematized/compare/v1.8.8...v1.8.9) (2020-12-23)
+
+
+### Bug Fixes
+
+* **package.json, yarn.lock:** bumped deps and locked AJV version to v6 ([cf7db91](https://github.com/ryparker/schematized/commit/cf7db916db26d03d9bb02d1bd8b0efa622bd0165))
+
 ## [1.8.8](https://github.com/ryparker/schematized/compare/v1.8.7...v1.8.8) (2020-11-20)
 
 
