@@ -1,6 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "type": "object",
+  "additionalProperties": false,
+  "maxProperties": 23,
+  "minProperties": 23,
   "properties": {
     "userRole": {
       "type": "array",
@@ -206,7 +208,5 @@
     "username",
     "vetTechId"
   ],
-  "additionalProperties": false,
-  "maxProperties": 23,
-  "minProperties": 23
+  "type": "object"
 }

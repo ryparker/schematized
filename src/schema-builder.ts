@@ -1,4 +1,5 @@
 import {SchemaNode} from './schema-node';
+import sortKeys from 'sort-keys';
 
 export default class SchemaBuilder {
 	private schemaUri: string;
@@ -27,7 +28,7 @@ export default class SchemaBuilder {
 
 	public toSchema() {
 		const schema = this.baseSchema();
-		return {...schema, ...this.rootNode.toSchema()};
+		return sortKeys({...schema, ...this.rootNode.toSchema()});
 	}
 
 	public toPrettySchema() {

@@ -1,8 +1,9 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "/user server response",
+  "additionalProperties": false,
   "description": "/user server response",
-  "type": "object",
+  "maxProperties": 2,
+  "minProperties": 2,
   "properties": {
     "token": {
       "type": "string",
@@ -22,7 +23,6 @@
     "role",
     "token"
   ],
-  "additionalProperties": false,
-  "maxProperties": 2,
-  "minProperties": 2
+  "title": "/user server response",
+  "type": "object"
 }

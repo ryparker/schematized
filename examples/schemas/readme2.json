@@ -1,6 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "type": "object",
+  "additionalProperties": false,
+  "maxProperties": 2,
+  "minProperties": 2,
   "properties": {
     "token": {
       "type": "string",
@@ -20,7 +22,5 @@
     "role",
     "token"
   ],
-  "additionalProperties": false,
-  "maxProperties": 2,
-  "minProperties": 2
+  "type": "object"
 }

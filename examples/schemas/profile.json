@@ -1,6 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "type": "object",
+  "additionalProperties": false,
+  "maxProperties": 6,
+  "minProperties": 6,
   "properties": {
     "username": {
       "type": "string",
@@ -62,7 +64,5 @@
     "role",
     "username"
   ],
-  "additionalProperties": false,
-  "maxProperties": 6,
-  "minProperties": 6
+  "type": "object"
 }
