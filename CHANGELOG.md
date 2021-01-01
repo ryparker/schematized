@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.9.0](https://github.com/ryparker/schematized/compare/v1.8.9...v1.9.0) (2021-01-01)
+
+
+### Features
+
+* **schema-builder.ts:** added sorting of key on `toSchema()` ([39e964b](https://github.com/ryparker/schematized/commit/39e964b32196418eb6a0dc89b0c78c75c59eb8d8))
+
 ## [1.8.9](https://github.com/ryparker/schematized/compare/v1.8.8...v1.8.9) (2020-12-23)
 
 
